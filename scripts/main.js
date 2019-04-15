@@ -1,3 +1,12 @@
+
+var img = new Image();   // Crée un nouvel élément img
+img.addEventListener('load', function() {
+  context.drawImage(img, 0, 0)
+//  exécute les instructions drawImage ici
+}, false);
+
+img.src = 'images/hero_left_0.gif'
+
 let canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
     width = 1000,
@@ -14,7 +23,7 @@ let canvas = document.querySelector('canvas'),
         jumping: false,
         grounded: false
     },
-    
+
     keys = [],
     friction = 0.8,
     gravity = 0.45;
@@ -90,12 +99,12 @@ function update() {
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = "black";
     ctx.beginPath();
-    
+
     //Player interactions
     player.grounded = false;
     for (let i = 0; i < boxes.length; i++) {
         ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
-        
+
         let dir = colCheck(player, boxes[i]);
 
         if (dir === "l" || dir === "r") {
@@ -109,18 +118,17 @@ function update() {
         }
 
     }
-    
+
     if(player.grounded){
          player.velY = 0;
     }
-    
+
     player.x += player.velX;
     player.y += player.velY;
 
     //Player
-    ctx.fill();
-    ctx.fillStyle = "Red";
-    ctx.fillRect(player.x, player.y, player.width, player.height);
+    ctx.fill()
+    ctx.drawImage(img,player.x, player.y, player.width, player.height)
 
     requestAnimationFrame(update);
 }
