@@ -1,7 +1,14 @@
-
-
-//________________________________________________________________________________________________
-
+class Door {
+    constructor(x, y, width, height) {
+        this.x = x
+        this.y = y
+        this.width = width
+        this.height = height
+    }
+    nextLevel() {
+        
+    }
+}
 
 (function() { "use strict";
 
@@ -70,16 +77,19 @@
 
   sprite_sheet.image.src = "images/hero_sprite.png";// Start loading the image.
 
-  //_______________________________________________________________________
 
-
+let imgDoor = new Image();
+imgDoor.addEventListener('load', function() {
+//  executes drawImage instructions here
+}, false);
+imgDoor.src = 'images/openedDoor_lv1.png'
 
 let canvas = document.querySelector('canvas'),
     context = canvas.getContext('2d'),
     width = 1280,
     height = 600,
 
-     player = {
+    player = {
         animation:new Animation(),
         x: 115,
         y: 185,
@@ -96,69 +106,7 @@ let canvas = document.querySelector('canvas'),
     friction = 0.8,
     gravity = 0.45;
 
-//Borders and Platforms
-let boxes = [];
-//Game Left Border
-boxes.push({
-    x: 0,
-    y: 0,
-    width: 20,
-    height: height
-});
-//Game Right Border
-boxes.push({
-    x: width - 20,
-    y: 0,
-    width: 20,
-    height: height
-});
-//Game Floor
-boxes.push({
-    x: 0,
-    y: height - 10,
-    width: width,
-    height: 50
-});
-//Game Roof
-boxes.push({
-    x: 0,
-    y: 0,
-    width: width,
-    height: 10
-});
-//Beginning Platform Floor
-boxes.push({
-    x: 100,
-    y: 250,
-    width: 50,
-    height: 10
-});
-//Beginning Platform Right Wall
-boxes.push({
-    x: 148,
-    y: 225,
-    width: 10,
-    height: 35
-});
-//Middle-bottom Platform
-boxes.push({
-    x: 475,
-    y: 560,
-    width: 50,
-    height: 30
-});
-//Right-bottom Platform
-boxes.push({
-    x: 800,
-    y: 520,
-    width: 20,
-    height: 80
-});
-
-canvas.width = width;
-canvas.height = height;
-
-function update(loop) {
+function update() {
     // check keys
     if (keys[38] || keys[32] || keys[90]) {
         // up arrow or space or Z
@@ -188,9 +136,13 @@ function update(loop) {
     player.velY += gravity;
 
     //Blocks
-    context.clearRect(0, 0, width, height);
-    context.fillStyle = "black";
     context.beginPath();
+    context.clearRect(0, 0, width, height);
+
+    //Door
+    context.beginPath();
+    context.fillRect(doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
+    context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
 
     //Player interactions
     player.grounded = false;
@@ -220,14 +172,11 @@ function update(loop) {
 
     //Player
     context.fill()
-    //context.drawImage(sprite_sheet.image, player.x, player.y, player.width, player.height)
 
     player.animation.update();
     requestAnimationFrame(update);
 
-    context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);
-
-    
+    context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);    
 }
 
 function colCheck(shapeA, shapeB) {

@@ -5,27 +5,27 @@ boxes.push({
     x: 0,
     y: 0,
     width: 20,
-    height: height
+    height: 600
 });
 //Game Right Border
 boxes.push({
-    x: width - 20,
+    x: 1260,
     y: 0,
     width: 20,
-    height: height
+    height: 600
 });
 //Game Floor
 boxes.push({
     x: 0,
-    y: height - 10,
-    width: width,
+    y: 590,
+    width: 1280,
     height: 50
 });
 //Game Roof
 boxes.push({
     x: 0,
     y: 0,
-    width: width,
+    width: 1280,
     height: 10
 });
 //Beginning Platform Floor
@@ -80,5 +80,5 @@ boxes.push({
 
 const doorLevel1 = new Door(1200, 450, 40, 60)
 
-canvas.width = width;
-canvas.height = height;
+canvas.width = 1280;
+canvas.height = 600;
