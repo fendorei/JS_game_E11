@@ -11,7 +11,7 @@ let canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
     width = 1000,
     height = 500,
-
+    
     player = {
         x: 115,
         y: 185,
@@ -23,7 +23,7 @@ let canvas = document.querySelector('canvas'),
         jumping: false,
         grounded: false
     },
-
+    
     keys = [],
     friction = 0.8,
     gravity = 0.45;
