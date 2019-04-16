@@ -1,23 +1,21 @@
-
-var img = new Image();   // Crée un nouvel élément img
+let img = new Image();   // Crée un nouvel élément img
 img.addEventListener('load', function() {
-  context.drawImage(img, 0, 0)
 //  exécute les instructions drawImage ici
 }, false);
 
 img.src = 'images/hero_left_0.gif'
 
 let canvas = document.querySelector('canvas'),
-    ctx = canvas.getContext('2d'),
-    width = 1000,
-    height = 500,
-    
+    context = canvas.getContext('2d'),
+    width = 1280,
+    height = 600,
+
     player = {
         x: 115,
         y: 185,
-        width: 20,
-        height: 30,
-        speed: 4,
+        width: 25,
+        height: 40,
+        speed: 5,
         velX: 0,
         velY: 0,
         jumping: false,
@@ -58,12 +56,33 @@ boxes.push({
     width: width,
     height: 10
 });
-//Beginning Platform
+//Beginning Platform Floor
 boxes.push({
     x: 100,
     y: 250,
     width: 50,
     height: 10
+});
+//Beginning Platform Right Wall
+boxes.push({
+    x: 148,
+    y: 225,
+    width: 10,
+    height: 35
+});
+//Middle-bottom Platform
+boxes.push({
+    x: 475,
+    y: 560,
+    width: 50,
+    height: 30  
+});
+//Right-bottom Platform
+boxes.push({
+    x: 800,
+    y: 520,
+    width: 20,
+    height: 80
 });
 
 canvas.width = width;
@@ -96,14 +115,14 @@ function update() {
     player.velY += gravity;
 
     //Blocks
-    ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = "black";
-    ctx.beginPath();
+    context.clearRect(0, 0, width, height);
+    context.fillStyle = "black";
+    context.beginPath();
 
     //Player interactions
     player.grounded = false;
     for (let i = 0; i < boxes.length; i++) {
-        ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+        context.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
 
         let dir = colCheck(player, boxes[i]);
 
@@ -127,8 +146,8 @@ function update() {
     player.y += player.velY;
 
     //Player
-    ctx.fill()
-    ctx.drawImage(img,player.x, player.y, player.width, player.height)
+    context.fill()
+    context.drawImage(img, player.x, player.y, player.width, player.height)
 
     requestAnimationFrame(update);
 }
@@ -180,23 +199,3 @@ document.body.addEventListener("keyup", function (e) {
 window.addEventListener("load", function () {
     update();
 });
-
-/*
-let player ={
-    width :
-    height :
-    Xposition :
-    Yposition :
-    //methode
-}
-
-class walls {
-    constructor(width, height, X, Y) {
-      this.width = width;
-      this.height = height;
-      this.X = X;
-      this.Y = Y;
-    }
-    //methode
-  }
-*/
