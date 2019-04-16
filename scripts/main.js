@@ -15,11 +15,12 @@ let canvas = document.querySelector('canvas'),
     width = 1280,
     height = 600,
 
-    player = {
+     player = {
+        animation:new Animation(),
         x: 115,
         y: 185,
-        width: 25,
-        height: 40,
+        width: 30,
+        height: 47,
         speed: 5,
         velX: 0,
         velY: 0,
@@ -43,7 +44,7 @@ let canvas = document.querySelector('canvas'),
         }
     }
 
-function update() {
+function update(loop) {
     // check keys
     if (keys[38] || keys[32] || keys[90]) {
         // up arrow or space or Z
@@ -51,18 +52,21 @@ function update() {
             player.jumping = true;
             player.grounded = false;
             player.velY = -player.speed * 2;
+            player.animation.change(sprite_sheet.frame_sets[0], 20);
         }
     }
     if (keys[39] || keys[68]) {
         // right arrow or D
         if (player.velX < player.speed) {
             player.velX++;
+            player.animation.change(sprite_sheet.frame_sets[1], 15);
         }
     }
     if (keys[37] || keys[81]) {
         // left arrow or Q
         if (player.velX > -player.speed) {
             player.velX--;
+            player.animation.change(sprite_sheet.frame_sets[2], 15);
         }
     }
 
@@ -108,7 +112,12 @@ function update() {
     context.fill()
     context.drawImage(imgPlayer, player.x, player.y, player.width, player.height)
 
+    player.animation.update();
     requestAnimationFrame(update);
+
+    context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);
+
+    
 }
 
 function colCheck(shapeA, shapeB) {
