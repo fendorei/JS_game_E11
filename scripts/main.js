@@ -1,20 +1,90 @@
-let img = new Image();   // create new image
-img.addEventListener('load', function() {
-// do drawimage instructions
-}, false);
 
-img.src = 'images/hero_left_0.gif'
+
+//________________________________________________________________________________________________
+
+
+(function() { "use strict";
+
+  
+  const SPRITE_SIZE = 50;
+
+ 
+  var Animation = function(frame_set, delay) {
+
+    this.count = 0;
+    this.delay = delay;
+    this.frame = 0;
+    this.frame_index = 0;
+    this.frame_set = frame_set;
+  };
+
+  Animation.prototype = {
+
+    
+    change:function(frame_set, delay = 15) {
+
+      if (this.frame_set != frame_set) {// If the frame set is different:
+
+        this.count = 0;// Reset the count.
+        this.delay = delay;// Set the delay.
+        this.frame_index = 0;// Start at the first frame in the new frame set.
+        this.frame_set = frame_set;// Set the new frame set.
+        this.frame = this.frame_set[this.frame_index];// Set the new frame value.
+
+      }
+
+    },
+
+    /* Call this on each game cycle. */
+    update:function() {
+
+      this.count ++;// Keep track of how many cycles have passed since the last frame change.
+
+      if (this.count >= this.delay) {// If enough cycles have passed, we change the frame.
+
+        this.count = 0;// Reset the count.
+        /* If the frame index is on the last value in the frame set, reset to 0.
+        If the frame index is not on the last value, just add 1 to it. */
+        this.frame_index = (this.frame_index == this.frame_set.length - 1) ? 0 : this.frame_index + 1;
+        this.frame = this.frame_set[this.frame_index];// Change the current frame value.
+
+      }
+
+    }
+
+  };
+
+  var buffer, controller, display, loop, render, resize, sprite_sheet;
+
+  sprite_sheet = {
+
+    frame_sets:[[0, 1], [2, 3], [4, 5]],// standing still, walk right, walk left
+    image:new Image()
+
+  };
+  sprite_sheet.image.addEventListener("load", function(event) {// When the load event fires, do this:
+
+    window.requestAnimationFrame(loop);// Start the game loop.
+
+  });
+
+  sprite_sheet.image.src = "images/hero_sprite.png";// Start loading the image.
+
+  //_______________________________________________________________________
+
+
 
 let canvas = document.querySelector('canvas'),
     context = canvas.getContext('2d'),
     width = 1280,
     height = 600,
 
-    player = {
+     player = {
+        animation:new Animation(),
         x: 115,
         y: 185,
-        width: 25,
-        height: 40,
+        width: 30,
+        height: 50,
         speed: 5,
         velX: 0,
         velY: 0,
@@ -88,7 +158,7 @@ boxes.push({
 canvas.width = width;
 canvas.height = height;
 
-function update() {
+function update(loop) {
     // check keys
     if (keys[38] || keys[32] || keys[90]) {
         // up arrow or space or Z
@@ -96,18 +166,21 @@ function update() {
             player.jumping = true;
             player.grounded = false;
             player.velY = -player.speed * 2;
+            player.animation.change(sprite_sheet.frame_sets[0], 20);
         }
     }
     if (keys[39] || keys[68]) {
         // right arrow or D
         if (player.velX < player.speed) {
             player.velX++;
+            player.animation.change(sprite_sheet.frame_sets[1], 15);
         }
     }
     if (keys[37] || keys[81]) {
         // left arrow or Q
         if (player.velX > -player.speed) {
             player.velX--;
+            player.animation.change(sprite_sheet.frame_sets[2], 15);
         }
     }
 
@@ -147,9 +220,14 @@ function update() {
 
     //Player
     context.fill()
-    context.drawImage(img, player.x, player.y, player.width, player.height)
+    //context.drawImage(sprite_sheet.image, player.x, player.y, player.width, player.height)
 
+    player.animation.update();
     requestAnimationFrame(update);
+
+    context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);
+
+    display.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, display.canvas.width, display.canvas.height);
 }
 
 function colCheck(shapeA, shapeB) {
@@ -199,3 +277,5 @@ document.body.addEventListener("keyup", function (e) {
 window.addEventListener("load", function () {
     update();
 });
+
+})();
