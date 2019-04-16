@@ -5,9 +5,6 @@ class Door {
         this.width = width
         this.height = height
     }
-    nextLevel() {
-        
-    }
 }
 
 (function() { "use strict";
@@ -16,7 +13,7 @@ class Door {
   const SPRITE_SIZE = 50;
 
  
-  var Animation = function(frame_set, delay) {
+  let Animation = function(frame_set, delay) {
 
     this.count = 0;
     this.delay = delay;
@@ -42,7 +39,6 @@ class Door {
 
     },
 
-    /* Call this on each game cycle. */
     update:function() {
 
       this.count ++;// Keep track of how many cycles have passed since the last frame change.
@@ -61,7 +57,7 @@ class Door {
 
   };
 
-  var buffer, controller, display, loop, render, resize, sprite_sheet;
+  let sprite_sheet;
 
   sprite_sheet = {
 
@@ -172,7 +168,6 @@ function update() {
 
     //Player
     context.fill()
-
     player.animation.update();
     requestAnimationFrame(update);
 
