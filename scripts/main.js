@@ -1,7 +1,8 @@
 
-var img = new Image();   // Create a new image
+var img = new Image();   // Crée un nouvel élément img
 img.addEventListener('load', function() {
-// do drawImage instructions
+  context.drawImage(img, 0, 0)
+//  exécute les instructions drawImage ici
 }, false);
 
 img.src = 'images/hero_left_0.gif'
