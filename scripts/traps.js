@@ -1,103 +1,116 @@
 class Spikes{
-    constructor(x, y) {
-	this.x = x
-	this.y = y
+    constructor(x, y, width, height) {
+        this.x = x
+        this.y = y
+        this.width = width
+        this.height = height
     }
 }
 
-class Trapdoor{
-    constructor(x, y) {
-	this.x = x
-	this.y = y
+class Trap{
+    constructor(x, y, width, height) {
+        this.x = x
+        this.y = y
+	this.width = width
+        this.height = height
     }
 }
 
 class Laser{
-    constructor(star_x, start_y, end_x, end_y) {
-	this.start_x = start_x
+    constructor(start_x, start_y, end_x, end_y) {
+        this.start_x = start_x
 	this.start_y = start_y
-	this.end_x = end_x
-	this.end_y = end_y
+        this.end_x = end_x
+        this.end_y = end_y
     }
 }
 
 class Teleporter{
-    constructor(x, y) {
+    constructor(x, y, width) {
 	this.x = x
-	this.y = y
-    }
-}
-
-class Slowdown{
-    constructor(x, y) {
-	this.x = x
-	this.y = y
+        this.y = y
+	this.width = width
     }
 }
 
 class MovingSaw{
-    constructor(star_x, start_y, end_x, end_y) {
-	this.start_x = start_x
+    constructor(start_x, start_y, end_x, end_y, radius) {
+        this.start_x = start_x
 	this.start_y = start_y
-	this.end_x = end_x
-	this.end_y = end_y
+        this.end_x = end_x
+        this.end_y = end_y
 	this.x = start_x
-	this.y = start_y
-	this.dir_x = right
-	this.dir_y = down
+        this.y = start_y
+	this.radius = radius
+        this.dir_x = "right"
+	this.dir_y = "down"
     }
 }
 
-function check_impaled(player, Spikes) {
-    if (player.x == Spikes.x && player.y == Spikes.y)
-	console.log("You died")
+class Glue{
+    constructor(x, y, width, height) {
+        this.x = x
+	this.y = y
+        this.width = width
+	this.height = height
+    }
 }
 
-function check_trap(player, Trapdoor) {
-    if (player.x == Trapdoor.x && player.y == Trapdoor.y)
-	player.y = player.y - 1
+let i = 0
+let j = 0
+
+function check_impaled(player, Spikes) {
+    if (((player.x >= Spikes.x) && (player.x <= (Spikes.x + Spikes.width))) && ((player.y >= Spikes.y) && (player.y <= (Spikes.y + Spikes.height))))
+        console.log("You died")
 }
+
+function check_trap(player, Trap) {
+    if (((player.x >= Trap.x) && (player.x <= (Trap.x + Trap.width))) && (((player.y + player.height) >= Trap.y) && ((player.y + player.height) <= (Trap.y + Trap.height))))
+	player.y = player.y + player.height
+    }
 
 function check_fried(player, Laser) {
     if ((player.x >= Laser.start_x && player.x <= Laser.end_x) && (player.y >= Laser.start_y && player.y <= Laser.end_y))
-	console.log("You died")
+        console.log("You died")
 }
 
 function check_teleported(player, Teleporter) {
-    if (player.x == Teleporter.x && player.y == Teleporter.y) {
-	player.x = Math.floor(Math.random() * Math.floor(1000))
-	player.y = Math.floor(Math.random() * Math.floor(500))
+    if ((player.x >= Teleporter.x && player.x <= Teleporter.x + Teleporter.width) && player.y + player.height == Teleporter.y) {
+        player.x = Math.floor(Math.random() * Math.floor(1000))
+        player.y = Math.floor(Math.random() * Math.floor(500))
     }
-}
-
-function check_slowdown(player, Slowdown) {
-    if (player.x == Slowdown.x && player.y == Slowdown.y)
-	player.speed = player.speed * 0.5
 }
 
 function check_sawed(player, MovingSaw) {
-    if (player.x == MovingSaw.x && player.y == MovingSaw.y)
-	console.log("You died")
-    if (MovingSaw.dir_x == right) {
-	if (MovingSaw.x == MovingSaw.end_x)
-	    MovingSaw.dir = left
-	else
-	    MovingSaw.x = MovinSaw.x++
-    } else if (MovingSaw.x == left) {
-	if (MovingSaw.x == MovingSaw.start_x)
-	    MovingSaw.dir = right
-	else
-	    MovingSaw.x = MovinSaw.x--
+    if ((player.x >= MovingSaw.x && player.x <= (MovingSaw.x + MovingSaw.radius)) && (player.y >= MovingSaw.y && player.y <= (MovingSaw.y + MovingSaw.radius)))
+        console.log("You died")
+    if (MovingSaw.dir_x == "right") {
+        if (MovingSaw.x == MovingSaw.end_x)
+            MovingSaw.dir_x = "left"
+        else
+            MovingSaw.x = MovingSaw.x + 1
+    } else if (MovingSaw.x == "left") {
+        if (MovingSaw.x == MovingSaw.start_x)
+            MovingSaw.dir_x = "right"
+        else
+            MovingSaw.x = MovingSaw.x - 1
     }
-    if (MovingSaw.dir_y == down) {
-	if (MovingSaw.y == MovingSaw.end_y)
-	    MovingSaw.dir = up
-	else
-	    MovingSaw.y = MovinSaw.y++
-    } else if (MovingSaw.y == up) {
-	if (MovingSaw.y == MovingSaw.start_y)
-	    MovingSaw.dir = down
-	else
-	    MovingSaw.y = MovinSaw.y--
+    if (MovingSaw.dir_y == "down") {
+        if (MovingSaw.y == MovingSaw.end_y)
+            MovingSaw.dir_y = "up"
+        else
+            MovingSaw.y = MovingSaw.y + 1
+    } else if (MovingSaw.y == "up") {
+        if (MovingSaw.y == MovingSaw.start_y)
+            MovingSaw.dir_y = "down"
+        else
+            MovingSaw.y = MovingSaw.y - 1
     }
+    console.log(MovingSaw.x, MovingSaw.y, MovingSaw.dir_x, MovingSaw.dir_y)
+}
+
+function check_glue(player, Glue) {
+    while (((player.x >= Trap.x) && (player.x <= (Trap.x + Trap.width))) && (((player.y + player.height) >= Trap.y) && ((player.y + player.height) <= (Trap.y + Trap.height))))
+        player.y = player.y + 1
+    console.log(player.x , player.y + player.height)
 }
