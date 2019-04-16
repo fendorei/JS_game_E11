@@ -1,14 +1,78 @@
-let imgPlayer = new Image();
-imgPlayer.addEventListener('load', function() {
-//  executes drawImage instructions here
-}, false);
-imgPlayer.src = 'images/hero_left_0.gif'
 
-let imgDoor = new Image();
-imgDoor.addEventListener('load', function() {
-//  executes drawImage instructions here
-}, false);
-imgDoor.src = 'images/openedDoor_lv1.png'
+
+//________________________________________________________________________________________________
+
+
+(function() { "use strict";
+
+  
+  const SPRITE_SIZE = 50;
+
+ 
+  var Animation = function(frame_set, delay) {
+
+    this.count = 0;
+    this.delay = delay;
+    this.frame = 0;
+    this.frame_index = 0;
+    this.frame_set = frame_set;
+  };
+
+  Animation.prototype = {
+
+    
+    change:function(frame_set, delay = 15) {
+
+      if (this.frame_set != frame_set) {// If the frame set is different:
+
+        this.count = 0;// Reset the count.
+        this.delay = delay;// Set the delay.
+        this.frame_index = 0;// Start at the first frame in the new frame set.
+        this.frame_set = frame_set;// Set the new frame set.
+        this.frame = this.frame_set[this.frame_index];// Set the new frame value.
+
+      }
+
+    },
+
+    /* Call this on each game cycle. */
+    update:function() {
+
+      this.count ++;// Keep track of how many cycles have passed since the last frame change.
+
+      if (this.count >= this.delay) {// If enough cycles have passed, we change the frame.
+
+        this.count = 0;// Reset the count.
+        /* If the frame index is on the last value in the frame set, reset to 0.
+        If the frame index is not on the last value, just add 1 to it. */
+        this.frame_index = (this.frame_index == this.frame_set.length - 1) ? 0 : this.frame_index + 1;
+        this.frame = this.frame_set[this.frame_index];// Change the current frame value.
+
+      }
+
+    }
+
+  };
+
+  var buffer, controller, display, loop, render, resize, sprite_sheet;
+
+  sprite_sheet = {
+
+    frame_sets:[[0, 1], [2, 3], [4, 5]],// standing still, walk right, walk left
+    image:new Image()
+
+  };
+  sprite_sheet.image.addEventListener("load", function(event) {// When the load event fires, do this:
+
+    
+
+  });
+
+  sprite_sheet.image.src = "images/hero_sprite.png";// Start loading the image.
+
+  //_______________________________________________________________________
+
+
 
 let canvas = document.querySelector('canvas'),
     context = canvas.getContext('2d'),
@@ -31,17 +95,67 @@ let canvas = document.querySelector('canvas'),
     friction = 0.8,
     gravity = 0.45;
 
-    class Door {
-        constructor(x, y, width, height) {
-            this.x = x
-            this.y = y
-            this.width = width
-            this.height = height
-        }
-        nextLevel() {
-            
-        }
-    }
+//Borders and Platforms
+let boxes = [];
+//Game Left Border
+boxes.push({
+    x: 0,
+    y: 0,
+    width: 20,
+    height: height
+});
+//Game Right Border
+boxes.push({
+    x: width - 20,
+    y: 0,
+    width: 20,
+    height: height
+});
+//Game Floor
+boxes.push({
+    x: 0,
+    y: height - 10,
+    width: width,
+    height: 50
+});
+//Game Roof
+boxes.push({
+    x: 0,
+    y: 0,
+    width: width,
+    height: 10
+});
+//Beginning Platform Floor
+boxes.push({
+    x: 100,
+    y: 250,
+    width: 50,
+    height: 10
+});
+//Beginning Platform Right Wall
+boxes.push({
+    x: 148,
+    y: 225,
+    width: 10,
+    height: 35
+});
+//Middle-bottom Platform
+boxes.push({
+    x: 475,
+    y: 560,
+    width: 50,
+    height: 30
+});
+//Right-bottom Platform
+boxes.push({
+    x: 800,
+    y: 520,
+    width: 20,
+    height: 80
+});
+
+canvas.width = width;
+canvas.height = height;
 
 function update() {
     // check keys
@@ -70,13 +184,9 @@ function update() {
     player.velY += gravity;
 
     //Blocks
-    context.beginPath();
     context.clearRect(0, 0, width, height);
-
-    //Door
+    context.fillStyle = "black";
     context.beginPath();
-    context.fillRect(doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
-    context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
 
     //Player interactions
     player.grounded = false;
@@ -106,7 +216,7 @@ function update() {
 
     //Player
     context.fill()
-    context.drawImage(imgPlayer, player.x, player.y, player.width, player.height)
+    //context.drawImage(sprite_sheet.image, player.x, player.y, player.width, player.height)
 
     requestAnimationFrame(update);
 }
@@ -158,3 +268,5 @@ document.body.addEventListener("keyup", function (e) {
 window.addEventListener("load", function () {
     update();
 });
+
+})();
