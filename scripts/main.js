@@ -64,7 +64,7 @@
   };
   sprite_sheet.image.addEventListener("load", function(event) {// When the load event fires, do this:
 
-    window.requestAnimationFrame(loop);// Start the game loop.
+    
 
   });
 
@@ -227,7 +227,7 @@ function update(loop) {
 
     context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);
 
-    display.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, display.canvas.width, display.canvas.height);
+    
 }
 
 function colCheck(shapeA, shapeB) {
