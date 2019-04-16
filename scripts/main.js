@@ -21,7 +21,7 @@ let canvas = document.querySelector('canvas'),
         jumping: false,
         grounded: false
     },
-
+    
     keys = [],
     friction = 0.8,
     gravity = 0.45;
