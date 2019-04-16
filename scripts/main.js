@@ -1,6 +1,6 @@
-let img = new Image();   // Crée un nouvel élément img
+let img = new Image();   // create new image
 img.addEventListener('load', function() {
-//  exécute les instructions drawImage ici
+// do drawimage instructions
 }, false);
 
 img.src = 'images/hero_left_0.gif'
@@ -21,7 +21,7 @@ let canvas = document.querySelector('canvas'),
         jumping: false,
         grounded: false
     },
-    
+
     keys = [],
     friction = 0.8,
     gravity = 0.45;
@@ -75,7 +75,7 @@ boxes.push({
     x: 475,
     y: 560,
     width: 50,
-    height: 30  
+    height: 30
 });
 //Right-bottom Platform
 boxes.push({
