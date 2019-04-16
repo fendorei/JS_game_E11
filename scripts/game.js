@@ -48,34 +48,34 @@ class MovingSaw{
     }
 }
 
-function check_impaled(player.x, player.y, Spikes.x, Spikes.y) {
+function check_impaled(player, Spikes) {
     if (player.x == Spikes.x && player.y == Spikes.y)
 	console.log("You died")
 }
 
-function check_trap(player.x, player.y, Trapdoor.x, Trapdoor.y) {
+function check_trap(player, Trapdoor) {
     if (player.x == Trapdoor.x && player.y == Trapdoor.y)
 	player.y = player.y - 1
 }
 
-function check_fried(player.x, player.y, Laser.start_x, Laser.start_y, Laser.end_x Laser.end_y) {
+function check_fried(player, Laser) {
     if ((player.x >= Laser.start_x && player.x <= Laser.end_x) && (player.y >= Laser.start_y && player.y <= Laser.end_y))
 	console.log("You died")
 }
 
-function check_teleported(player.x, player.y, Teleporter.x, Teleporter.y) {
+function check_teleported(player, Teleporter) {
     if (player.x == Teleporter.x && player.y == Teleporter.y) {
 	player.x = Math.floor(Math.random() * Math.floor(1000))
 	player.y = Math.floor(Math.random() * Math.floor(500))
     }
 }
 
-function check_slowdown(player.x, player.y, Slowdown.x, Slowdown.y) {
+function check_slowdown(player, Slowdown) {
     if (player.x == Slowdown.x && player.y == Slowdown.y)
 	player.speed = player.speed * 0.5
 }
 
-function check_sawed(player.x, player.y, MovingSaw.start_x, MovingSaw.start_y, MovingSaw.end_x MovingSaw.end_y, MovingSaw.x, MovingSaw.y, MovingSaw.dir_x, MovingSaw.dir_y) {
+function check_sawed(player, MovingSaw) {
     if (player.x == MovingSaw.x && player.y == MovingSaw.y)
 	console.log("You died")
     if (MovingSaw.dir_x == right) {
