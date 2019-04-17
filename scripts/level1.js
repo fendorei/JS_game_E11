@@ -80,7 +80,7 @@ let boxes = [
 ];
 
 let boxesToAdd = [
-    {
+    [{
         x: 600,
         y: 300,
         width: 100,
@@ -91,13 +91,19 @@ let boxesToAdd = [
         y: 300,
         width: 100,
         height: 10
-    },
-    {
-        x: 700,
+    }],
+    [{
+        x: 200,
         y: 300,
         width: 100,
         height: 10
-    }
+    },
+    {
+        x: 300,
+        y: 300,
+        width: 100,
+        height: 10
+    }]
 ];
 
 const doorLevel1 = new Door(1200, 450, 40, 60)

@@ -238,8 +238,9 @@ window.addEventListener("load", function () {
 let isFinished = 0
 
 function newObstacle(){
-        boxes.push(boxesToAdd[isFinished])
-        console.log(isFinished)
+    for(let i = 0; i < boxesToAdd[isFinished].length; i ++){
+        boxes.push(boxesToAdd[isFinished][i]);
+    }
 }
 
 setInterval(
