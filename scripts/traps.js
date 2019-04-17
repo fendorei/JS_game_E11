@@ -11,7 +11,7 @@ class Trap{
     constructor(x, y, width, height) {
         this.x = x
         this.y = y
-	this.width = width
+	      this.width = width
         this.height = height
     }
 }
@@ -19,7 +19,7 @@ class Trap{
 class Laser{
     constructor(start_x, start_y, end_x, end_y) {
         this.start_x = start_x
-	this.start_y = start_y
+ 	      this.start_y = start_y
         this.end_x = end_x
         this.end_y = end_y
     }
@@ -27,32 +27,32 @@ class Laser{
 
 class Teleporter{
     constructor(x, y, width) {
-	this.x = x
-        this.y = y
-	this.width = width
+	     this.x = x
+       this.y = y
+	     this.width = width
     }
 }
 
 class MovingSaw{
     constructor(start_x, start_y, end_x, end_y, radius) {
         this.start_x = start_x
-	this.start_y = start_y
+	      this.start_y = start_y
         this.end_x = end_x
         this.end_y = end_y
-	this.x = start_x
+	      this.x = start_x
         this.y = start_y
-	this.radius = radius
+	      this.radius = radius
         this.dir_x = "right"
-	this.dir_y = "down"
+        this.dir_y = "down"
     }
 }
 
 class Glue{
     constructor(x, y, width, height) {
         this.x = x
-	this.y = y
+	      this.y = y
         this.width = width
-	this.height = height
+        this.height = height
     }
 }
 
