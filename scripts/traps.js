@@ -95,6 +95,8 @@ function check_sawed(player, MovingSaw) {
     if ((player.x >= MovingSaw.x && player.x <= (MovingSaw.x + MovingSaw.radius)) && (player.y >= MovingSaw.y && player.y <= (MovingSaw.y + MovingSaw.radius))) {
         player.x = 115;
         player.y = 185;
+	MovingSaw.x = MovingSaw.start_x
+	MovingSaw.y = MovingSaw.start_y
 	death = death + 1
 	div.innerHTML = "Death: " + death
     }
