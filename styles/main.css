@@ -3,3 +3,9 @@ canvas {
     top : 10%;
     left : 10%;
 }
+
+.deaths  {
+    text-transform:uppercase;
+    font: 2vw/1 "Bangers", sans-serif;  
+    font-weight: bold;
+}

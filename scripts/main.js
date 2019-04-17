@@ -24,7 +24,7 @@ class Door {
 
 const SPRITE_SIZE = 50;
 
- 
+
   let animation = function(frame_set, delay) {
 
     this.count = 0;
@@ -36,7 +36,7 @@ const SPRITE_SIZE = 50;
 
   animation.prototype = {
 
-    
+
     change:function(frame_set, delay = 15) {
 
       if (this.frame_set != frame_set) {// If the frame set is different:
@@ -79,7 +79,7 @@ const SPRITE_SIZE = 50;
   };
   sprite_sheet.image.addEventListener("load", function(event) {// When the load event fires, do this:
 
-    
+
 
   });
 
@@ -236,7 +236,7 @@ window.addEventListener("load", function () {
 
 setInterval(
     ()=>{
-        for (let i = 0; i < 11; i++) 
+        for (let i = 0; i < 11; i++)
             if(player.x <= doorLevel1.x + doorLevel1.width &&
                 player.x >= doorLevel1.x &&
                 player.y <= doorLevel1.y + doorLevel1.height &&

@@ -66,7 +66,7 @@ function check_impaled(player, Spikes) {
         player.x = 115;
         player.y = 185;
 	death = death + 1
-	div.innerHTML = "Death: " + death
+	div.innerHTML = "Deaths: " + death
     }
 }
 
@@ -80,7 +80,7 @@ function check_fried(player, Laser) {
         player.x = 115;
         player.y = 185;
 	death = death + 1
-	div.innerHTML = "Death: " + death
+	div.innerHTML = "Deaths: " + death
     }
 }
 
@@ -98,7 +98,7 @@ function check_sawed(player, MovingSaw) {
 	MovingSaw.x = MovingSaw.start_x
 	MovingSaw.y = MovingSaw.start_y
 	death = death + 1
-	div.innerHTML = "Death: " + death
+	div.innerHTML = "Deaths: " + death
     }
     if (MovingSaw.dir_x == "right") {
         if (MovingSaw.x == MovingSaw.end_x)
