@@ -234,24 +234,26 @@ window.addEventListener("load", function () {
     update();
 });
 
+//Next Level while crossing Door
+let isFinished = 0
+
+function newObstacle(){
+        boxes.push(boxesToAdd[isFinished])
+        console.log(isFinished)
+}
+
 setInterval(
     ()=>{
-        for (let i = 0; i < 11; i++)
-            if(player.x <= doorLevel1.x + doorLevel1.width &&
-                player.x >= doorLevel1.x &&
-                player.y <= doorLevel1.y + doorLevel1.height &&
-                player.y >= doorLevel1.y){
-                    //instructions while touching door
-                    player.x = 115;
-                    player.y = 185;
-                    boxes.push({
-                        x: 800,
-                        y: 510,
-                        width: 100,
-                        height: 10
-                    });
-                    console.log(i)
-            }
+        if(player.x <= doorLevel1.x + doorLevel1.width &&
+            player.x >= doorLevel1.x &&
+            player.y <= doorLevel1.y + doorLevel1.height &&
+            player.y >= doorLevel1.y){
+            //instructions while touching door = player respawns
+                player.x = 115;
+                player.y = 185;
+                newObstacle()
+                isFinished ++                
+        }
     },
     100
 );
