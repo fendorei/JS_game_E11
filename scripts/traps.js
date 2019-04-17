@@ -36,12 +36,12 @@ class Teleporter{
 class MovingSaw{
     constructor(start_x, start_y, end_x, end_y, radius) {
         this.start_x = start_x
-	      this.start_y = start_y
+	this.start_y = start_y
         this.end_x = end_x
         this.end_y = end_y
-	      this.x = start_x
+	this.x = start_x
         this.y = start_y
-	      this.radius = radius
+	this.radius = radius
         this.dir_x = "right"
         this.dir_y = "down"
     }
@@ -53,6 +53,19 @@ class Glue{
 	      this.y = y
         this.width = width
         this.height = height
+    }
+}
+
+class Arrow{
+    constructor(start_x, start_y, end, dir) {
+        this.start_x = start_x
+	this.start_y = start_y
+        this.end = end
+	this.x = start_x
+        this.y = start_y
+	this.width = 100
+	this.height = 50
+        this.dir = dir
     }
 }
 
@@ -92,7 +105,7 @@ function check_teleported(player, Teleporter) {
 }
 
 function check_sawed(player, MovingSaw) {
-    if ((player.x >= MovingSaw.x && player.x <= (MovingSaw.x + MovingSaw.radius)) && (player.y >= MovingSaw.y && player.y <= (MovingSaw.y + MovingSaw.radius))) {
+    if (((player.x >= MovingSaw.x && player.x <= MovingSaw.x + MovingSaw.radius) || (player.x + player.width >= MovingSaw.x && player.x + player.width <= MovingSaw.x + MovingSaw.radius)) && ((player.y >= MovingSaw.y && player.y <= MovingSaw.y + MovingSaw.radius) || (player.y + player.height >= MovingSaw.y && player.y + player.height <= MovingSaw.y + MovingSaw.radius))) {
         player.x = 50;
         player.y = 200;
 	MovingSaw.x = MovingSaw.start_x
@@ -128,4 +141,31 @@ function check_glue(player, Glue) {
     while (((player.x >= Trap.x) && (player.x <= (Trap.x + Trap.width))) && (((player.y + player.height) >= Trap.y) && ((player.y + player.height) <= (Trap.y + Trap.height))))
         player.y = player.y + 1
     console.log(player.x , player.y + player.height)
+}
+
+function check_shot(player, Arrow) {
+    if (((player.x >= Arrow.x && player.x <= Arrow.x + Arrow.width) || (player.x + player.width >= Arrow.x && player.x + player.width <= Arrow.x + Arrow.width)) &&
+	((player.y >= Arrow.y && player.y <= Arrow.y + Arrow.height) || (player.y + player.height >= Arrow.y && player.y + player.height <= Arrow.y + Arrow.height))) {
+        player.x = 115;
+        player.y = 185;
+	Arrow.x = Arrow.start_x
+	Arrow.y = Arrow.start_y
+	death = death + 1
+	div.innerHTML = "Deaths: " + death
+    }
+    if (Arrow.dir == "horizontal") {
+        if (Arrow.x == Arrow.end)
+            Arrow.x = Arrow.start_x
+        else if (Arrow.x < Arrow.end)
+            Arrow.x = Arrow.x + 1
+        else
+            Arrow.x = Arrow.x - 1
+    } else if (Arrow.dir == "vertical") {
+        if (Arrow.y == Arrow.end)
+            Arrow.y = Arrow.start_y
+        if (Arrow.y < Arrow.end)
+            Arrow.y = Arrow.y + 1
+        else
+            Arrow.y = Arrow.y - 1
+    }
 }

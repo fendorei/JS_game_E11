@@ -109,6 +109,13 @@ imgSaw.addEventListener('load', function() {
 }, false);
 imgSaw.src = 'images/scie.png'
 
+let arrow = new Arrow(200, 200, 100, "vertical")
+let imgArrow = new Image();
+imgArrow.addEventListener('load', function() {
+//  executes drawImage instructions here
+}, false);
+imgArrow.src = 'images/arrow1s.png'
+
 function update() {
     // check keys
     if (keys[38] || keys[32] || keys[90]) {
@@ -150,6 +157,9 @@ function update() {
     context.beginPath();
     context.drawImage(imgSaw, saw.x, saw.y, saw.radius, saw.radius)
 
+    context.beginPath();
+    context.drawImage(imgArrow, arrow.x, arrow.y, arrow.width, arrow.height)
+
     //Player interactions
     player.grounded = false;
     for (let i = 0; i < boxes.length; i++) {
@@ -184,6 +194,7 @@ function update() {
     context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);
 
     check_sawed(player, saw)
+    check_shot(player, arrow)
 }
 
 function colCheck(shapeA, shapeB) {
