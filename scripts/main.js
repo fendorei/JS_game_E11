@@ -102,6 +102,13 @@ let canvas = document.querySelector('canvas'),
     friction = 0.8,
     gravity = 0.45;
 
+let saw = new MovingSaw(200, 200, 300, 300, 100)
+let imgSaw = new Image();
+imgSaw.addEventListener('load', function() {
+//  executes drawImage instructions here
+}, false);
+imgSaw.src = 'images/scie.png'
+
 function update() {
     // check keys
     if (keys[38] || keys[32] || keys[90]) {
@@ -140,6 +147,9 @@ function update() {
     context.fillRect(doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
     context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
 
+    context.beginPath();
+    context.drawImage(imgSaw, saw.x, saw.y, saw.radius, saw.radius)
+
     //Player interactions
     player.grounded = false;
     for (let i = 0; i < boxes.length; i++) {
@@ -171,7 +181,9 @@ function update() {
     player.animation.update();
     requestAnimationFrame(update);
 
-    context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);    
+    context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);
+
+    check_sawed(player, saw)
 }
 
 function colCheck(shapeA, shapeB) {
