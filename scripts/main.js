@@ -1,3 +1,18 @@
+class Player {
+    constructor(animation, x, y, width, height, speed, velX, velY, jumping, grounded) {
+        this.animation = animation
+        this.x = x
+        this.y = y
+        this.width = width
+        this.height = height
+        this.speed = speed
+        this.velX = velX
+        this.velY = velY
+        this.jumping = jumping
+        this.grounded = grounded
+    }
+}
+
 class Door {
     constructor(x, y, width, height) {
         this.x = x
@@ -7,13 +22,10 @@ class Door {
     }
 }
 
-(function() { "use strict";
-
-  
-  const SPRITE_SIZE = 50;
+const SPRITE_SIZE = 50;
 
  
-  let Animation = function(frame_set, delay) {
+  let animation = function(frame_set, delay) {
 
     this.count = 0;
     this.delay = delay;
@@ -22,7 +34,7 @@ class Door {
     this.frame_set = frame_set;
   };
 
-  Animation.prototype = {
+  animation.prototype = {
 
     
     change:function(frame_set, delay = 15) {
@@ -80,24 +92,12 @@ imgDoor.addEventListener('load', function() {
 }, false);
 imgDoor.src = 'images/openedDoor_lv1.png'
 
+const player = new Player(new animation(), 115, 185, 30, 47, 5, 0, 0, false, false)
+
 let canvas = document.querySelector('canvas'),
     context = canvas.getContext('2d'),
     width = 1280,
     height = 600,
-
-    player = {
-        animation:new Animation(),
-        x: 115,
-        y: 185,
-        width: 30,
-        height: 47,
-        speed: 5,
-        velX: 0,
-        velY: 0,
-        jumping: false,
-        grounded: false
-    },
-
     keys = [],
     friction = 0.8,
     gravity = 0.45;
@@ -222,4 +222,24 @@ window.addEventListener("load", function () {
     update();
 });
 
-})();
+setInterval(
+    ()=>{
+        for (let i = 0; i < 11; i++) 
+            if(player.x <= doorLevel1.x + doorLevel1.width &&
+                player.x >= doorLevel1.x &&
+                player.y <= doorLevel1.y + doorLevel1.height &&
+                player.y >= doorLevel1.y){
+                    //instructions while touching door
+                    player.x = 115;
+                    player.y = 185;
+                    boxes.push({
+                        x: 800,
+                        y: 510,
+                        width: 100,
+                        height: 10
+                    });
+                    console.log(i)
+            }
+    },
+    100
+);
