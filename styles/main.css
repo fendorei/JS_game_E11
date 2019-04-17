@@ -6,6 +6,10 @@ canvas {
 
 .deaths  {
     text-transform:uppercase;
-    font: 2vw/1 "Bangers", sans-serif;  
+    font: 2vw/1 "Bangers", sans-serif;
     font-weight: bold;
+}
+
+h1 {
+    font: 2vw/1 "Bangers", sans-serif; 
 }
