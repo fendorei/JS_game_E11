@@ -92,7 +92,7 @@ imgDoor.addEventListener('load', function() {
 }, false);
 imgDoor.src = 'images/openedDoor_lv1.png'
 
-const player = new Player(new animation(), 115, 185, 30, 47, 5, 0, 0, false, false)
+const player = new Player(new animation(), 50, 200, 30, 47, 5, 0, 0, false, false)
 
 let canvas = document.querySelector('canvas'),
     context = canvas.getContext('2d'),
@@ -250,8 +250,8 @@ setInterval(
             player.y <= doorLevel1.y + doorLevel1.height &&
             player.y >= doorLevel1.y){
             //instructions while touching door = player respawns
-                player.x = 115;
-                player.y = 185;
+                player.x = 50;
+                player.y = 200;
                 newObstacle()
                 isFinished ++                
         }

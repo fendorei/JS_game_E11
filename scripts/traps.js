@@ -63,8 +63,8 @@ let div = document.querySelector("div")
 
 function check_impaled(player, Spikes) {
     if (((player.x >= Spikes.x) && (player.x <= (Spikes.x + Spikes.width))) && ((player.y >= Spikes.y) && (player.y <= (Spikes.y + Spikes.height)))) {
-        player.x = 115;
-        player.y = 185;
+        player.x = 50;
+        player.y = 200;
 	death = death + 1
 	div.innerHTML = "Deaths: " + death
     }
@@ -77,8 +77,8 @@ function check_trap(player, Trap) {
 
 function check_fried(player, Laser) {
     if ((player.x >= Laser.start_x && player.x <= Laser.end_x) && (player.y >= Laser.start_y && player.y <= Laser.end_y)) {
-        player.x = 115;
-        player.y = 185;
+        player.x = 50;
+        player.y = 200;
 	death = death + 1
 	div.innerHTML = "Deaths: " + death
     }
@@ -93,8 +93,8 @@ function check_teleported(player, Teleporter) {
 
 function check_sawed(player, MovingSaw) {
     if ((player.x >= MovingSaw.x && player.x <= (MovingSaw.x + MovingSaw.radius)) && (player.y >= MovingSaw.y && player.y <= (MovingSaw.y + MovingSaw.radius))) {
-        player.x = 115;
-        player.y = 185;
+        player.x = 50;
+        player.y = 200;
 	MovingSaw.x = MovingSaw.start_x
 	MovingSaw.y = MovingSaw.start_y
 	death = death + 1
