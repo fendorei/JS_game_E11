@@ -92,7 +92,7 @@ function check_teleported(player, Teleporter) {
 }
 
 function check_sawed(player, MovingSaw) {
-    if ((player.x >= MovingSaw.x && player.x <= (MovingSaw.x + MovingSaw.radius)) && (player.y >= MovingSaw.y && player.y <= (MovingSaw.y + MovingSaw.radius))) {
+    if (((player.x >= MovingSaw.x && player.x <= MovingSaw.x + MovingSaw.radius) || (player.x + player.width >= MovingSaw.x && player.x + player.width <= MovingSaw.x + MovingSaw.radius)) && ((player.y >= MovingSaw.y && player.y <= MovingSaw.y + MovingSaw.radius) || (player.y + player.height >= MovingSaw.y && player.y + player.height <= MovingSaw.y + MovingSaw.radius))) {
         player.x = 115;
         player.y = 185;
 	MovingSaw.x = MovingSaw.start_x
