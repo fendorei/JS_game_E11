@@ -146,8 +146,8 @@ function check_glue(player, Glue) {
 function check_shot(player, Arrow) {
     if (((player.x >= Arrow.x && player.x <= Arrow.x + Arrow.width) || (player.x + player.width >= Arrow.x && player.x + player.width <= Arrow.x + Arrow.width)) &&
 	((player.y >= Arrow.y && player.y <= Arrow.y + Arrow.height) || (player.y + player.height >= Arrow.y && player.y + player.height <= Arrow.y + Arrow.height))) {
-        player.x = 115;
-        player.y = 185;
+        player.x = 50;
+        player.y = 200;
 	Arrow.x = Arrow.start_x
 	Arrow.y = Arrow.start_y
 	death = death + 1
