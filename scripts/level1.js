@@ -164,54 +164,6 @@ let boxesToAdd = [
     }],
     //Level 3
     [{
-        x: 25,
-        y: 250,
-        width: 75,
-        height: 12.5
-    },
-    {
-        x: 220,
-        y: 170,
-        width: 75,
-        height: 25
-    },
-    {
-        x: 100,
-        y: 162.5,
-        width: 25,
-        height: 100
-    },
-    {
-        x: 450,
-        y: 25,
-        width: 25,
-        height: 275
-    },
-    {
-        x: 325,
-        y: 275,
-        width: 125,
-        height: 25
-    },
-    {
-        x: 300,
-        y: 275,
-        width: 25,
-        height: 225
-    },
-    {
-        x: 225,
-        y: 350,
-        width: 75,
-        height: 25
-    },
-    {
-        x: 325,
-        y: 475,
-        width: 75,
-        height: 25
-    },
-    {
         x: 500,
         y: 400,
         width: 200,
@@ -240,18 +192,6 @@ let boxesToAdd = [
         y: 200,
         width: 75,
         height: 25
-    },
-    {
-        x: 900,
-        y: 525,
-        width: 50,
-        height: 50
-    },
-    {
-        x: 950,
-        y: 475,
-        width: 50,
-        height: 100
     },
     {
         x: 1000,
