@@ -9,14 +9,28 @@ canvas {
     text-transform:uppercase;
     font: 2vw/1 "Bangers", sans-serif;
     font-weight: bold;
+      color: #e9ecef
+
 }
 
 .level {
     text-transform:uppercase;
     font: 2vw/1 "Bangers", sans-serif;
     font-weight: bold;
+    color: #e9ecef
 }
 
 .chrono {
-    font: 2vw/1 "Bangers", sans-serif; 
+    font: 2vw/1 "Bangers", sans-serif;
+    color: #e9ecef
+}
+
+#mainGame{
+  height: 650px;
+  width: auto;
+  background: #333;
+}
+
+.values{
+  margin-top: 50px;
 }
