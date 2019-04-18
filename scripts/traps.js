@@ -83,8 +83,8 @@ let j = 0
 let death = 0
 let div = document.querySelector(".deaths")
 
-function check_impaled(player, Spikes) {
-    if (((player.x >= Spikes.x) && (player.x <= (Spikes.x + Spikes.width))) && ((player.y >= Spikes.y) && (player.y <= (Spikes.y + Spikes.height)))) {
+function check_impaled(player, spikes1) {
+    if (((player.x >= spikes1.x) && (player.x <= (spikes1.x + spikes1.width))) && ((player.y >= spikes1.y) && (player.y <= (spikes1.y + spikes1.height)))) {
         player.x = 50;
         player.y = 200;
 	death = death + 1

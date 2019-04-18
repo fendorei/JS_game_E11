@@ -147,30 +147,23 @@ let canvas = document.querySelector('canvas'),
 
   sprite_sheet_saw.image.src = "images/saw_2.0.png";// Start loading the image.
 
-  let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 145, 100)
+let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 145, 100)
 
-
+let spikes1 = new Spikes(500, 550, 35, 25)
+let imgSpikesUp = new Image();
+imgSpikesUp.src = 'images/spikesUp.png'
 
 let arrow = new Arrow(200, 200, 100, "vertical")
 let imgArrowUp = new Image();
-imgArrowUp.addEventListener('load', function() {
-//  executes drawImage instructions here                                                                                                                                                      
-}, false);
 imgArrowUp.src = 'images/arrow1s.png'
+
 let imgArrowLeft = new Image();
-imgArrowLeft.addEventListener('load', function() {
-//  executes drawImage instructions here                                                                                                                                                      
-}, false);
 imgArrowLeft.src = 'images/arrow2s.png'
+
 let imgArrowDown = new Image();
-imgArrowDown.addEventListener('load', function() {
-//  executes drawImage instructions here                                                                                                                                                      
-}, false);
 imgArrowDown.src = 'images/arrow3s.png'
+
 let imgArrowRight = new Image();
-imgArrowRight.addEventListener('load', function() {
-//  executes drawImage instructions here                                                                                                                                                      
-}, false);
 imgArrowRight.src = 'images/arrow4s.png'
 
 let imgBoxes = new Image();
@@ -212,13 +205,15 @@ function update() {
     context.beginPath();
     context.clearRect(0, 0, width, height);
 
-    //Door image
+    //Door
     context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
-    //Saw Image
+    //Saw
     saw.animation_saw.update();
     context.drawImage(sprite_sheet_saw.image, saw.animation_saw.frame * saw.radius, 0, saw.width, saw.height, Math.floor(saw.x), Math.floor(saw.y), saw.size, saw.size)
-    //ArrowUp Image
+    //ArrowUp
     context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
+    //spikes1
+    context.drawImage(imgSpikesUp, spikes1.x, spikes1.y, spikes1.width, spikes1.height)
 
     player.grounded = false;
     for (let i = 0; i < boxes.length; i++) {
@@ -255,6 +250,7 @@ function update() {
 
     check_sawed(player, saw)
     check_shot(player, arrow)
+    check_impaled(player, spikes1)
 }
 
 function colCheck(shapeA, shapeB) {
@@ -315,20 +311,12 @@ function newObstacle(){
     }
 }
 
-function newTraps(){
-    for(let i = 0; i < boxesToAdd[isFinished].length; i ++){
-        boxes.push(boxesToAdd[isFinished][i]);
+function newSpikes(){
+    for(let i = 0; i < spikesToAdd[isFinished].length; i ++){
+        spikes.push(spikesToAdd[isFinished][i]);
     }
 }
-/*
-//Push saws to draw them
-function newTraps(){
-    for(let i = 0; i < saws.length; i ++){
-        if (isFinished = 1)
-        saws[isFinished].push(saw1)
-    }
-}
-*/
+
 let stage = document.querySelector(".level")
 
 setInterval(

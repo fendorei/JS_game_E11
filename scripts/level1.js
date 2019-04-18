@@ -371,3 +371,32 @@ const doorLevel1 = new Door(1200, 450, 40, 60)
 
 canvas.width = 1280;
 canvas.height = 600;
+
+let spikes = [];
+
+let spikesToAdd = [
+    //Level 0
+    [
+        
+    ],
+    //Level 1
+    [
+
+    ],
+    //Level 2
+    [
+
+    ],
+    //Level 3
+    [
+
+    ],
+    //Level 4
+    [
+
+    ],
+    //Level 5
+    [
+
+    ]
+];
