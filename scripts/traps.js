@@ -34,7 +34,7 @@ class Teleporter{
 }
 
 class MovingSaw{
-    constructor(animation_saw, width, height, start_x, start_y, end_x, end_y, radius) {
+    constructor(animation_saw, width, height, start_x, start_y, end_x, end_y, radius, size) {
         this.animation_saw = animation_saw
         this.width = width
         this.height = height
@@ -47,6 +47,7 @@ class MovingSaw{
 	this.radius = radius
         this.dir_x = "right"
         this.dir_y = "down"
+        this.size = size
     }
 }
 
@@ -113,7 +114,7 @@ function check_teleported(player, Teleporter) {
 }
 
 function check_sawed(player, MovingSaw) {
-    if (((player.x >= MovingSaw.x && player.x <= MovingSaw.x + MovingSaw.radius) || (player.x + player.width >= MovingSaw.x && player.x + player.width <= MovingSaw.x + MovingSaw.radius)) && ((player.y >= MovingSaw.y && player.y <= MovingSaw.y + MovingSaw.radius) || (player.y + player.height >= MovingSaw.y && player.y + player.height <= MovingSaw.y + MovingSaw.radius))) {
+    if (((player.x >= MovingSaw.x && player.x <= MovingSaw.x + SPRITE_SIZE_saw) || (player.x + player.width >= MovingSaw.x && player.x + player.width <= MovingSaw.x + SPRITE_SIZE_saw)) && ((player.y >= MovingSaw.y && player.y <= MovingSaw.y + SPRITE_SIZE_saw) || (player.y + player.height >= MovingSaw.y && player.y + player.height <= MovingSaw.y + SPRITE_SIZE_saw))) {
         player.x = 50;
         player.y = 200;
 	MovingSaw.x = MovingSaw.start_x

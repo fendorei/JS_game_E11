@@ -101,9 +101,6 @@ let canvas = document.querySelector('canvas'),
     gravity = 0.45;
 
 
-const SPRITE_SIZE_saw = 145;
-
-
   let animation_saw = function(frame_set_saw, delay) {
 
     this.count = 0;
@@ -150,7 +147,10 @@ const SPRITE_SIZE_saw = 145;
 
   sprite_sheet_saw.image.src = "images/saw_2.0.png";// Start loading the image.
 
-  let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 100)
+  let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 145, 100)
+
+
+  var SPRITE_SIZE_saw = saw.size;
 
 
 
@@ -219,7 +219,7 @@ function update() {
     context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
     //Saw Image
     saw.animation_saw.update();
-    context.drawImage(sprite_sheet_saw.image, saw.animation_saw.frame * SPRITE_SIZE_saw, 0, SPRITE_SIZE_saw, SPRITE_SIZE_saw, Math.floor(saw.x), Math.floor(saw.y), SPRITE_SIZE_saw, SPRITE_SIZE_saw)
+    context.drawImage(sprite_sheet_saw.image, saw.animation_saw.frame * saw.radius, 0, saw.width, saw.height, Math.floor(saw.x), Math.floor(saw.y), SPRITE_SIZE_saw, SPRITE_SIZE_saw)
     //ArrowUp Image
     context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
 
