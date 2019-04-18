@@ -170,22 +170,15 @@ function update() {
     context.beginPath();
     context.clearRect(0, 0, width, height);
 
-    //Door
-    context.beginPath();
-    context.fillRect(doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
+    //Door image
     context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
-
-    context.beginPath();
+    //Saw Image
     context.drawImage(imgSaw, saw.x, saw.y, saw.radius, saw.radius)
-
-    context.beginPath();
+    //ArrowUp Image
     context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
 
-    //Player interactions
     player.grounded = false;
     for (let i = 0; i < boxes.length; i++) {
-
-        context.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
         context.fillStyle = context.createPattern(imgBoxes, "repeat");
         context.fillRect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
 
