@@ -278,8 +278,10 @@ function newObstacle(){
     }
 }
 
+let stage = document.querySelector(".level")
+
 setInterval(
-    ()=>{
+    ()=>{ // Check if Player's hitbox is hitting door's hitbox
         if(player.x <= doorLevel1.x + doorLevel1.width &&
             player.x >= doorLevel1.x &&
             player.y <= doorLevel1.y + doorLevel1.height &&
@@ -288,7 +290,8 @@ setInterval(
                 player.x = 50;
                 player.y = 200;
                 newObstacle()
-                isFinished ++                
+                isFinished ++
+                stage.innerHTML = "level " + isFinished            
         }
     },
     100
@@ -326,9 +329,8 @@ setInterval(
 
   }
 
-  play.onclick = (event) => {
+  window.onload = (event) => {
     chronometerCall = setInterval(chronometer, 1000)
     event.target.setAttribute(`disabled`,``)
   }
-
 })()

@@ -4,12 +4,18 @@ canvas {
     left : 10%;
 }
 
-.deaths  {
+.deaths {
     text-transform:uppercase;
     font: 2vw/1 "Bangers", sans-serif;
     font-weight: bold;
 }
 
-h1 {
+.level {
+    text-transform:uppercase;
+    font: 2vw/1 "Bangers", sans-serif;
+    font-weight: bold;
+}
+
+.chrono {
     font: 2vw/1 "Bangers", sans-serif; 
 }

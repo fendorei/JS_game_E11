@@ -64,20 +64,20 @@ class Arrow{
 	this.x = start_x
         this.y = start_y
         this.dir = dir
-	if (dir == "horizontal") {
-	    this.width = 25
-	    this.height = 12.5
-	} else if (dir == "vertical") {
-	    this.width = 12.5
-	    this.height = 25
-	}
+        if (dir == "horizontal") {
+            this.width = 25
+            this.height = 12.5
+        } else if (dir == "vertical") {
+            this.width = 12.5
+            this.height = 25
+        }
     }
 }
 
 let i = 0
 let j = 0
 let death = 0
-let div = document.querySelector("div")
+let div = document.querySelector(".deaths")
 
 function check_impaled(player, Spikes) {
     if (((player.x >= Spikes.x) && (player.x <= (Spikes.x + Spikes.width))) && ((player.y >= Spikes.y) && (player.y <= (Spikes.y + Spikes.height)))) {
