@@ -2,6 +2,7 @@ canvas {
     position: absolute;
     top : 10%;
     left : 10%;
+    background-image: url(../images/decort.jpg)
 }
 
 .deaths {
