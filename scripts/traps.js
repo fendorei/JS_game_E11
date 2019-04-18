@@ -83,8 +83,8 @@ let j = 0
 let death = 0
 let div = document.querySelector(".deaths")
 
-function check_impaled(player, spikes1) {
-    if (((player.x >= spikes1.x) && (player.x <= (spikes1.x + spikes1.width))) && ((player.y >= spikes1.y) && (player.y <= (spikes1.y + spikes1.height)))) {
+function check_impaled(player, Spikes) {
+    if (((player.x >= Spikes.x) && (player.x <= (Spikes.x + Spikes.width))) && ((player.y >= Spikes.y) && (player.y <= (Spikes.y + Spikes.height)))) {
         player.x = 50;
         player.y = 200;
 	death = death + 1
@@ -114,7 +114,7 @@ function check_teleported(player, Teleporter) {
 }
 
 function check_sawed(player, MovingSaw) {
-    if (((player.x >= MovingSaw.x && player.x <= MovingSaw.x + MovingSaw.size) || (player.x + player.width >= MovingSaw.x && player.x + player.width <= MovingSaw.x + MovingSaw.size)) && ((player.y >= MovingSaw.y && player.y <= MovingSaw.y + MovingSaw.size) || (player.y + player.height >= MovingSaw.y && player.y + player.height <= MovingSaw.y + MovingSaw.size))) {
+    if (((player.x >= MovingSaw.x && player.x <= MovingSaw.x + saw.size) || (player.x + player.width >= MovingSaw.x && player.x + player.width <= MovingSaw.x + saw.size)) && ((player.y >= MovingSaw.y && player.y <= MovingSaw.y + saw.size) || (player.y + player.height >= MovingSaw.y && player.y + player.height <= MovingSaw.y + saw.size))) {
         player.x = 50;
         player.y = 200;
 	MovingSaw.x = MovingSaw.start_x
