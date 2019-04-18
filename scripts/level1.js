@@ -64,24 +64,6 @@ let boxesToAdd = [
         y: 400,
         width: 50,
         height: 25
-    },
-    {
-        x: 850,
-        y: 525,
-        width: 50,
-        height: 50
-    },
-    {
-        x: 900,
-        y: 475,
-        width: 50,
-        height: 100
-    },
-    {
-        x: 950,
-        y: 425,
-        width: 50,
-        height: 250
     }],
     //Level 2
     [{
@@ -143,24 +125,6 @@ let boxesToAdd = [
         y: 400,
         width: 25,
         height: 125
-    },
-    {
-        x: 850,
-        y: 525,
-        width: 50,
-        height: 50
-    },
-    {
-        x: 900,
-        y: 475,
-        width: 50,
-        height: 100
-    },
-    {
-        x: 950,
-        y: 425,
-        width: 50,
-        height: 250
     }],
     //Level 3
     [{
@@ -192,13 +156,215 @@ let boxesToAdd = [
         y: 200,
         width: 75,
         height: 25
+    }],
+    // Niveau 4
+    //platform_wall_3_2
+    [{
+        x: 675,
+        y: 150,
+        width: 25,
+        height: 250
+        },
+        //platform5_2
+        {
+            x: 700,
+            y: 150,
+            width: 400,
+            height: 25
+        },
+        //platform_wall_5_2(V)
+        {
+            x: 662.5,
+            y: 25,
+            width: 25,
+            height: 37.5
+        },
+        //platform_wall_5_2(V)
+        {
+            x: 875,
+            y: 25,
+            width: 25,
+            height: 50
+        },
+        //platform_wall_5_2(V)
+        {
+            x: 775,
+            y: 100,
+            width: 25,
+            height: 50
+        },
+        //platform_wall_5_2(V)
+        {
+            x: 975,
+            y: 100,
+            width: 25,
+            height: 50
+        },
+        //platform_wall_5_2(H)
+        {
+            x: 855,
+            y: 300,
+            width: 400,
+            height: 25
+        },
+        //platform_wall_5_2(V)
+        {
+            x: 855,
+            y: 300,
+            width: 25,
+            height: 110
+        }],
+        // Niveau 5
+        //platform_wall_5_2(V)
+    [{
+        x: 875,
+        y: 25,
+        width: 25,
+        height: 50
+    },
+    //platform_wall_5_2(V)
+    {
+        x: 775,
+        y: 100,
+        width: 25,
+        height: 50
+    },
+    //platform_wall_5_2(V)
+    {
+        x: 975,
+        y: 100,
+        width: 25,
+        height: 50
+    },
+    //platform_wall_5_2(H)
+    {
+        x: 800,
+        y: 300,
+        width: 455,
+        height: 100
+    },
+    //platform_wall_5_2(V)
+    {
+        x: 800,
+        y: 300,
+        width: 25,
+        height: 175
+    },
+    //platform
+    {
+        x: 700,
+        y: 350,
+        width: 25,
+        height: 25
+    },
+    //platform
+    {
+        x: 775,
+        y: 450,
+        width: 25,
+        height: 25
+    },
+    //platform
+    {
+        x: 800,
+        y: 535,
+        width: 25,
+        height: 50
+    },
+    //platform_10_1*1
+    {
+        x: 825,
+        y: 535,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 875,
+        y: 535,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 925,
+        y: 535,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 975,
+        y: 535,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 1025,
+        y: 535,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 1075,
+        y: 535,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 1125,
+        y: 535,
+        width: 25,
+        height: 25
+    },
+    //platform_10_2*1
+    {
+        x: 850,
+        y: 400,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 900,
+        y: 400,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 950,
+        y: 400,
+        width: 25,
+        height: 25
     },
     {
         x: 1000,
-        y: 425,
-        width: 50,
-        height: 250
-    }],
+        y: 400,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 1050,
+        y: 400,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 1100,
+        y: 400,
+        width: 25,
+        height: 25
+    },
+    {
+        x: 1175,
+        y: 400,
+        width: 80,
+        height: 25
+    },
+    
+    //Door Platform
+    {
+        x: 1175,
+        y: 510,
+        width: 100,
+        height: 100
+    }]
 ];
 
 const doorLevel1 = new Door(1200, 450, 40, 60)
