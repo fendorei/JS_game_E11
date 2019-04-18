@@ -317,7 +317,7 @@ setInterval(
 
   }
 
-  window.onload = (event) => {
+  window.onload = () => {
     chronometerCall = setInterval(chronometer, 1000)
   }
 })()
