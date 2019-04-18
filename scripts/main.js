@@ -116,6 +116,12 @@ imgArrow.addEventListener('load', function() {
 }, false);
 imgArrow.src = 'images/arrow1s.png'
 
+let imgBoxes = new Image();
+  // imgBoxes.onload = start;
+  imgBoxes.src = "images/pierre.jpg";
+
+console.log(imgBoxes.src);
+
 function update() {
     // check keys
     if (keys[38] || keys[32] || keys[90]) {
@@ -163,7 +169,10 @@ function update() {
     //Player interactions
     player.grounded = false;
     for (let i = 0; i < boxes.length; i++) {
+
         context.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+        context.fillStyle = context.createPattern(imgBoxes, "repeat");
+        context.fillRect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
 
         let dir = colCheck(player, boxes[i]);
 
