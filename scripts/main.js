@@ -22,7 +22,7 @@ class Door {
     }
 }
 
-const SPRITE_SIZE = 50;
+const SPRITE_SIZE = 50
 
 
   let animation = function(frame_set, delay) {
@@ -109,21 +109,25 @@ let imgArrowUp = new Image();
 imgArrowUp.addEventListener('load', function() {
 //  executes drawImage instructions here                                                                                                                                                      
 }, false);
+
 imgArrowUp.src = 'images/arrow1s.png'
 let imgArrowLeft = new Image();
 imgArrowLeft.addEventListener('load', function() {
 //  executes drawImage instructions here                                                                                                                                                      
 }, false);
+
 imgArrowLeft.src = 'images/arrow2s.png'
 let imgArrowDown = new Image();
 imgArrowDown.addEventListener('load', function() {
 //  executes drawImage instructions here                                                                                                                                                      
 }, false);
+
 imgArrowDown.src = 'images/arrow3s.png'
 let imgArrowRight = new Image();
 imgArrowRight.addEventListener('load', function() {
 //  executes drawImage instructions here                                                                                                                                                      
 }, false);
+
 imgArrowRight.src = 'images/arrow4s.png'
 
 let imgBoxes = new Image();
@@ -317,7 +321,7 @@ setInterval(
 
   }
 
-  window.onload = (event) => {
+  window.onload = () => {
     chronometerCall = setInterval(chronometer, 1000)
-  }
+}
 })()
