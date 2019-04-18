@@ -79,8 +79,6 @@ const SPRITE_SIZE = 50;
   };
   sprite_sheet.image.addEventListener("load", function(event) {// When the load event fires, do this:
 
-
-
   });
 
   sprite_sheet.image.src = "images/hero_sprite.png";// Start loading the image.
@@ -92,7 +90,7 @@ imgDoor.addEventListener('load', function() {
 }, false);
 imgDoor.src = 'images/openedDoor_lv1.png'
 
-const player = new Player(new animation(), 50, 200, 30, 47, 5, 0, 0, false, false)
+const player = new Player(new animation(), 50, 5, 30, 47, 5, 0, 0, false, false)
 
 let canvas = document.querySelector('canvas'),
     context = canvas.getContext('2d'),
@@ -104,10 +102,7 @@ let canvas = document.querySelector('canvas'),
 
 let saw = new MovingSaw(200, 200, 300, 300, 100)
 let imgSaw = new Image();
-imgSaw.addEventListener('load', function() {
-//  executes drawImage instructions here
-}, false);
-imgSaw.src = 'images/scie.png'
+imgSaw.src = 'images/saw1.png'
 
 let arrow = new Arrow(200, 200, 100, "vertical")
 let imgArrowUp = new Image();
@@ -324,6 +319,5 @@ setInterval(
 
   window.onload = (event) => {
     chronometerCall = setInterval(chronometer, 1000)
-    event.target.setAttribute(`disabled`,``)
   }
 })()
