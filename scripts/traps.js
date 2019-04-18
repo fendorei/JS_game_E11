@@ -63,9 +63,14 @@ class Arrow{
         this.end = end
 	this.x = start_x
         this.y = start_y
-	this.width = 100
-	this.height = 50
         this.dir = dir
+	if (dir == "horizontal") {
+	    this.width = 25
+	    this.height = 12.5
+	} else if (dir == "vertical") {
+	    this.width = 12.5
+	    this.height = 25
+	}
     }
 }
 

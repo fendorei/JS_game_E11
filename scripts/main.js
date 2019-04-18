@@ -110,11 +110,26 @@ imgSaw.addEventListener('load', function() {
 imgSaw.src = 'images/scie.png'
 
 let arrow = new Arrow(200, 200, 100, "vertical")
-let imgArrow = new Image();
-imgArrow.addEventListener('load', function() {
-//  executes drawImage instructions here
+let imgArrowUp = new Image();
+imgArrowUp.addEventListener('load', function() {
+//  executes drawImage instructions here                                                                                                                                                      
 }, false);
-imgArrow.src = 'images/arrow1s.png'
+imgArrowUp.src = 'images/arrow1s.png'
+let imgArrowLeft = new Image();
+imgArrowLeft.addEventListener('load', function() {
+//  executes drawImage instructions here                                                                                                                                                      
+}, false);
+imgArrowLeft.src = 'images/arrow2s.png'
+let imgArrowDown = new Image();
+imgArrowDown.addEventListener('load', function() {
+//  executes drawImage instructions here                                                                                                                                                      
+}, false);
+imgArrowDown.src = 'images/arrow3s.png'
+let imgArrowRight = new Image();
+imgArrowRight.addEventListener('load', function() {
+//  executes drawImage instructions here                                                                                                                                                      
+}, false);
+imgArrowRight.src = 'images/arrow4s.png'
 
 let imgBoxes = new Image();
   // imgBoxes.onload = start;
@@ -164,7 +179,7 @@ function update() {
     context.drawImage(imgSaw, saw.x, saw.y, saw.radius, saw.radius)
 
     context.beginPath();
-    context.drawImage(imgArrow, arrow.x, arrow.y, arrow.width, arrow.height)
+    context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
 
     //Player interactions
     player.grounded = false;
