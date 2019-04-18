@@ -100,9 +100,59 @@ let canvas = document.querySelector('canvas'),
     friction = 0.8,
     gravity = 0.45;
 
-let saw = new MovingSaw(200, 200, 300, 300, 100)
-let imgSaw = new Image();
-imgSaw.src = 'images/saw1.png'
+
+const SPRITE_SIZE_saw = 145;
+
+
+  let animation_saw = function(frame_set_saw, delay) {
+
+    this.count = 0;
+    this.delay = delay;
+    this.frame = 0;
+    this.frame_index_saw = 0;
+    this.frame_set_saw = frame_set_saw;
+  };
+
+  animation_saw.prototype = {
+
+
+    update:function() {
+
+      this.count ++;// Keep track of how many cycles have passed since the last frame change.
+
+      if (this.count >= this.delay) {// If enough cycles have passed, we change the frame.
+
+        this.count = 0;// Reset the count.
+        /* If the frame index is on the last value in the frame set, reset to 0.
+        If the frame index is not on the last value, just add 1 to it. */
+        this.frame_index_saw = (this.frame_index_saw == this.frame_set_saw.length - 1) ? 0 : this.frame_index_saw + 1;
+        this.frame = this.frame_set_saw[this.frame_index_saw];// Change the current frame value.
+
+      }
+
+    }
+
+  };
+
+  let sprite_sheet_saw;
+
+  sprite_sheet_saw = {
+
+    frame_sets:[0, 1, 2, 3, 4, 5],// standing still, walk right, walk left
+    image:new Image()
+
+  };
+  sprite_sheet_saw.image.addEventListener("load", function(event) {// When the load event fires, do this:
+
+
+
+  });
+
+  sprite_sheet_saw.image.src = "images/saw_2.0.png";// Start loading the image.
+
+  let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 100)
+
+
 
 let arrow = new Arrow(200, 200, 100, "vertical")
 let imgArrowUp = new Image();
@@ -168,7 +218,8 @@ function update() {
     //Door image
     context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
     //Saw Image
-    context.drawImage(imgSaw, saw.x, saw.y, saw.radius, saw.radius)
+    saw.animation_saw.update();
+    context.drawImage(sprite_sheet_saw.image, saw.animation_saw.frame * SPRITE_SIZE_saw, 0, SPRITE_SIZE_saw, SPRITE_SIZE_saw, Math.floor(saw.x), Math.floor(saw.y), SPRITE_SIZE_saw, SPRITE_SIZE_saw)
     //ArrowUp Image
     context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
 
