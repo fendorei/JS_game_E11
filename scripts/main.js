@@ -311,12 +311,27 @@ window.addEventListener("load", function () {
 //Next Level while crossing Door
 let isFinished = 0
 
+//Push new blocks to draw them
 function newObstacle(){
     for(let i = 0; i < boxesToAdd[isFinished].length; i ++){
         boxes.push(boxesToAdd[isFinished][i]);
     }
 }
 
+function newTraps(){
+    for(let i = 0; i < boxesToAdd[isFinished].length; i ++){
+        boxes.push(boxesToAdd[isFinished][i]);
+    }
+}
+/*
+//Push saws to draw them
+function newTraps(){
+    for(let i = 0; i < saws.length; i ++){
+        if (isFinished = 1)
+        saws[isFinished].push(saw1)
+    }
+}
+*/
 let stage = document.querySelector(".level")
 
 setInterval(
