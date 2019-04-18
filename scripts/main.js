@@ -148,6 +148,11 @@ let canvas = document.querySelector('canvas'),
   sprite_sheet_saw.image.src = "images/saw_2.0.png";// Start loading the image.
 
   let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 145, 100)
+ 
+  let saw2 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 300, 500, 400, 145, 50)
+  
+
+ 
 
 
 
@@ -217,6 +222,14 @@ function update() {
     //Saw Image
     saw.animation_saw.update();
     context.drawImage(sprite_sheet_saw.image, saw.animation_saw.frame * saw.radius, 0, saw.width, saw.height, Math.floor(saw.x), Math.floor(saw.y), saw.size, saw.size)
+
+    if(isFinished>=1){
+       
+    saw2.animation_saw.update();
+    context.drawImage(sprite_sheet_saw.image, saw2.animation_saw.frame * saw2.radius, 0, saw2.width, saw2.height, Math.floor(saw2.x), Math.floor(saw2.y), saw2.size, saw2.size)
+    check_sawed(player, saw2)
+      
+    }
     //ArrowUp Image
     context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
 
@@ -312,6 +325,7 @@ function newObstacle(){
     for(let i = 0; i < boxesToAdd[isFinished].length; i ++){
         boxes.push(boxesToAdd[isFinished][i]);
     }
+    
 }
 
 let stage = document.querySelector(".level")
