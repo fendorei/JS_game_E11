@@ -95,6 +95,7 @@ const SPRITE_SIZE = 50;
 
   sprite_sheet.image.src = "images/hero_sprite.png";// Start loading the image.
 
+//Img Door
 
 let imgDoor = new Image();
 imgDoor.addEventListener('load', function() {
@@ -102,7 +103,16 @@ imgDoor.addEventListener('load', function() {
 }, false);
 imgDoor.src = 'images/openedDoor_lv1.png'
 
-const player = new Player(new animation(), 50, 5, 30, 47, 5, 0, 0, false, false)
+
+let imgDoorClosed = new Image();
+imgDoorClosed.addEventListener('load', function() {
+//  executes drawImage instructions here
+}, false);
+imgDoorClosed.src = 'images/doorClosed.jpg'
+
+
+
+const player = new Player(new animation(), 50, 175, 30, 47, 5, 0, 0, false, false)
 
 let canvas = document.querySelector('canvas'),
     context = canvas.getContext('2d'),
@@ -159,11 +169,18 @@ let canvas = document.querySelector('canvas'),
 
   sprite_sheet_saw.image.src = "images/saw_2.0.png";// Start loading the image.
 
-  let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 145, 100)
+  let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 200, 400, 300, 145, 100)
  
   let saw2 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 300, 500, 400, 145, 50)
+
+  let saw3 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 145, 100)
+  let saw4 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 250, 375, 250, 525, 145, 50)
+  let saw5 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 1000, 110, 1215, 110, 145, 40)
+  let saw6 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 800, 175, 800, 265, 145, 37.5)
+  let saw7 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 925, 175, 925, 265, 145, 37.5)
+  let saw8 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 1050, 175, 1050, 265, 145, 37.5)
  
-let arrow = new Arrow(200, 200, 100, "vertical")
+let arrow = new Arrow(200, 160, 30, "vertical")
 let imgArrowUp = new Image();
 imgArrowUp.src = 'images/arrow1s.png'
 
@@ -217,17 +234,57 @@ function update() {
 
     //Door
     context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
-    //Saw
-    saw.animation_saw.update();
-    context.drawImage(sprite_sheet_saw.image, saw.animation_saw.frame * saw.radius, 0, saw.width, saw.height, Math.floor(saw.x), Math.floor(saw.y), saw.size, saw.size)
 
-    if(isFinished>=1){
-       
-    saw2.animation_saw.update();
-    context.drawImage(sprite_sheet_saw.image, saw2.animation_saw.frame * saw2.radius, 0, saw2.width, saw2.height, Math.floor(saw2.x), Math.floor(saw2.y), saw2.size, saw2.size)
-    check_sawed(player, saw2)
+    context.drawImage(imgDoorClosed,doorClosed.x, doorClosed.y, doorClosed.width, doorClosed.height)
+    //Saw
+    if(isFinished==1){
+        saw.animation_saw.update();
+      context.drawImage(sprite_sheet_saw.image, saw.animation_saw.frame * saw.radius, 0, saw.width, saw.height, Math.floor(saw.x), Math.floor(saw.y), saw.size, saw.size)
+      check_sawed(player, saw)
+  
+      }
+  
+      if(isFinished>=2){
+         
+      saw2.animation_saw.update();
+      context.drawImage(sprite_sheet_saw.image, saw2.animation_saw.frame * saw2.radius, 0, saw2.width, saw2.height, Math.floor(saw2.x), Math.floor(saw2.y), saw2.size, saw2.size)
+      check_sawed(player, saw2)
+  
+      saw3.animation_saw.update();
+        context.drawImage(sprite_sheet_saw.image, saw3.animation_saw.frame * saw3.radius, 0, saw3.width, saw3.height, Math.floor(saw3.x), Math.floor(saw3.y), saw3.size, saw3.size)
+        check_sawed(player, saw3)
+        
+      }
+  
       
-    }
+      if(isFinished>=3){
+         
+  
+        saw4.animation_saw.update();
+        context.drawImage(sprite_sheet_saw.image, saw4.animation_saw.frame * saw4.radius, 0, saw4.width, saw4.height, Math.floor(saw4.x), Math.floor(saw4.y), saw4.size, saw4.size)
+        check_sawed(player, saw4)
+          
+        }
+  
+      if(isFinished>=4){
+         
+      saw5.animation_saw.update();
+      context.drawImage(sprite_sheet_saw.image, saw5.animation_saw.frame * saw5.radius, 0, saw5.width, saw5.height, Math.floor(saw5.x), Math.floor(saw5.y), saw5.size, saw5.size)
+      check_sawed(player, saw5)
+  
+      saw6.animation_saw.update();
+      context.drawImage(sprite_sheet_saw.image, saw6.animation_saw.frame * saw6.radius, 0, saw6.width, saw6.height, Math.floor(saw6.x), Math.floor(saw6.y), saw6.size, saw6.size)
+      check_sawed(player, saw6)
+  
+      saw7.animation_saw.update();
+      context.drawImage(sprite_sheet_saw.image, saw7.animation_saw.frame * saw7.radius, 0, saw7.width, saw7.height, Math.floor(saw7.x), Math.floor(saw7.y), saw7.size, saw7.size)
+      check_sawed(player, saw7)
+  
+      saw8.animation_saw.update();
+      context.drawImage(sprite_sheet_saw.image, saw8.animation_saw.frame * saw8.radius, 0, saw8.width, saw8.height, Math.floor(saw8.x), Math.floor(saw8.y), saw8.size, saw8.size)
+      check_sawed(player, saw8)
+        
+      }
     //ArrowUp Image
     context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
 
@@ -264,7 +321,7 @@ function update() {
 
     context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);
 
-    check_sawed(player, saw)
+    
     check_shot(player, arrow)
 }
 

@@ -16,7 +16,7 @@ canvas {
 
 .level {
     text-transform:uppercase;
-    font: 2vw/1 "Bangers", sans-serif;
+    font: 3vw/1 "Bangers", sans-serif;
     font-weight: bold;
     color: #e9ecef;
     margin-left: 10px;
@@ -34,8 +34,18 @@ canvas {
   background: #333;
 }
 
+.score{
+  padding-top: 250px;
+  padding-left: 20px;
+}
+
 .values{
-  margin-top: 50px;
+padding-top: 20px;
+}
+
+.instructions{
+  height: 500px;
+  background: #f8f7fa;
 }
 
 .unmuteButton{

@@ -35,19 +35,20 @@ let boxes = [
         y: 510,
         width: 100,
         height: 10
-    }
+    },
+    //Door platform Begin
+    {
+        x: 25,
+        y: 250,
+        width: 75,
+        height: 12.5
+    },
 ];
 
 let boxesToAdd = [
     //Level 1
     //Beginning Platform Floor
     [{
-        x: 0,
-        y: 250,
-        width: 120,
-        height: 12.5
-    },
-    {
         x: 100,
         y: 162.5,
         width: 25,
@@ -367,7 +368,9 @@ let boxesToAdd = [
     }]
 ];
 
-const doorLevel1 = new Door(1200, 450, 40, 60)
+
+const doorLevel1 = new Door(1180, 440, 75, 75)
+const doorClosed = new Door(25, 175, 75, 75)
 
 canvas.width = 1280;
 canvas.height = 600;
