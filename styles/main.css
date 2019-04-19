@@ -50,7 +50,6 @@ padding-top: 20px;
   background: #f8f7fa;
 }
 
-<<<<<<< HEAD
 .instructions img{
   width: 800px;
   height: auto;
@@ -84,7 +83,6 @@ padding-top: 20px;
   margin-right: auto;
   margin-bottom: 20px;
 }
-=======
 .unmuteButton{
   background:url(../images/unmute.png) no-repeat;
   cursor:pointer;
@@ -104,4 +102,3 @@ padding-top: 20px;
   margin-left: 30px;
   margin-top: 5px;
 }
->>>>>>> 59b3f7beef052fdd63dfbc7006ecdceffdd0681a
