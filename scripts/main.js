@@ -33,7 +33,7 @@ muteButton.addEventListener('click', function() {
   audio.muted = true
 });
 
-//Animation hero
+//Hero Animation
 const SPRITE_SIZE = 50;
 
 
@@ -96,24 +96,16 @@ const SPRITE_SIZE = 50;
   sprite_sheet.image.src = "images/hero_sprite.png";// Start loading the image.
 
 //Img Door
-
 let imgDoor = new Image();
-imgDoor.addEventListener('load', function() {
-//  executes drawImage instructions here
-}, false);
 imgDoor.src = 'images/openedDoor_lv1.png'
 
-
 let imgDoorClosed = new Image();
-imgDoorClosed.addEventListener('load', function() {
-//  executes drawImage instructions here
-}, false);
 imgDoorClosed.src = 'images/doorClosed.jpg'
 
-
-
+//Player One Object
 const player = new Player(new animation(), 50, 175, 30, 47, 5, 0, 0, false, false)
 
+//Canvas properties
 let canvas = document.querySelector('canvas'),
     context = canvas.getContext('2d'),
     width = 1280,
@@ -122,7 +114,7 @@ let canvas = document.querySelector('canvas'),
     friction = 0.8,
     gravity = 0.45;
 
-//Animation saw
+//Saw Animation
   let animation_saw = function(frame_set_saw, delay) {
 
     this.count = 0;
@@ -169,57 +161,45 @@ let canvas = document.querySelector('canvas'),
 
   sprite_sheet_saw.image.src = "images/saw_2.0.png";// Start loading the image.
 
-  let trap = new Trap(680,555,67,20)
-  let trap2 = new Trap(850,555,50,20)
-  let trap3 = new Trap(925,555,50,20)
-  let trap4 = new Trap(1000,555,50,20)
-  let trap5 = new Trap(1075,555,50,20)
+  //Creating Traps Objects
+  let trap = new Trap(680,555,67,20),
+  trap2 = new Trap(850,555,50,20),
+  trap3 = new Trap(925,555,50,20),
+  trap4 = new Trap(1000,555,50,20),
+  trap5 = new Trap(1075,555,50,20),
+  saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 200, 400, 300, 145, 100),
+  saw2 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 300, 500, 400, 145, 50),
+  saw3 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 145, 100),
+  saw4 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 250, 375, 250, 525, 145, 50),
+  saw5 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 1000, 110, 1215, 110, 145, 40),
+  saw6 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 800, 175, 800, 265, 145, 37.5),
+  saw7 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 925, 175, 925, 265, 145, 37.5),
+  saw8 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 1050, 175, 1050, 265, 145, 37.5),
+  saw9 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 700, 25, 850, 25, 145, 25), arrow = new Arrow(200, 160, 30, "vertical"),
+  arrow2 = new Arrow(25,555,1255, "horizontal"),
+  arrow3 = new Arrow(900,50,1255, "horizontal");
 
-  let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 200, 400, 300, 145, 100)
-  let saw2 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 300, 500, 400, 145, 50)
-  let saw3 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 145, 100)
-  let saw4 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 250, 375, 250, 525, 145, 50)
-  let saw5 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 1000, 110, 1215, 110, 145, 40)
-  let saw6 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 800, 175, 800, 265, 145, 37.5)
-  let saw7 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 925, 175, 925, 265, 145, 37.5)
-  let saw8 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 1050, 175, 1050, 265, 145, 37.5)
-  let saw9 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 700, 25, 850, 25, 145, 25)
- 
-let arrow = new Arrow(200, 160, 30, "vertical")
-let arrow2 = new Arrow(25,555,1255, "horizontal")
-let arrow3 = new Arrow(900,50,1255, "horizontal")
+  // Creating Traps Images
+  let imgTrapUp = new Image(),
+  imgTrapLeft = new Image(),
+  imgTrapDown = new Image(),
+  imgTrapRight = new Image(),
+  imgArrowUp = new Image(),
+  imgArrowLeft = new Image(),
+  imgArrowDown = new Image(),
+  imgArrowRight = new Image(),
+  imgBoxes = new Image();
 
-
-let imgTrapUp = new Image();
-imgTrapUp.src = 'images/spikesUp.png'
-
-let imgTrapLeft = new Image();
-imgTrapLeft.src = 'images/spikesLeft.png'
-
-let imgTrapDown = new Image();
-imgTrapDown.src = 'images/spikesDown.png'
-
-let imgTrapRight = new Image();
-imgTrapRight.src = 'images/spikesRight.png'
-
-
-let imgArrowUp = new Image();
-imgArrowUp.src = 'images/arrow1s.png'
-
-let imgArrowLeft = new Image();
-imgArrowLeft.src = 'images/arrow2s.png'
-
-let imgArrowDown = new Image();
-imgArrowDown.src = 'images/arrow3s.png'
-
-let imgArrowRight = new Image();
-imgArrowRight.src = 'images/arrow4s.png'
-
-let imgBoxes = new Image();
-  // imgBoxes.onload = start;
+  //Calling Traps Images
+  imgTrapUp.src = 'images/spikesUp.png'
+  imgTrapLeft.src = 'images/spikesLeft.png'
+  imgTrapDown.src = 'images/spikesDown.png'
+  imgTrapRight.src = 'images/spikesRight.png'
+  imgArrowUp.src = 'images/arrow1s.png'
+  imgArrowLeft.src = 'images/arrow2s.png'
+  imgArrowDown.src = 'images/arrow3s.png'
+  imgArrowRight.src = 'images/arrow4s.png'
   imgBoxes.src = "images/pierre.jpg";
-
-console.log(imgBoxes.src);
 
 function update() {
     // check keys
@@ -254,10 +234,10 @@ function update() {
     context.beginPath();
     context.clearRect(0, 0, width, height);
 
-    //Door
+    //Doors
     context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
-
     context.drawImage(imgDoorClosed,doorClosed.x, doorClosed.y, doorClosed.width, doorClosed.height)
+    
     // Trap
     context.drawImage(imgTrapUp,trap.x, trap.y, trap.width, trap.height)
 
