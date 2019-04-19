@@ -169,12 +169,14 @@ let canvas = document.querySelector('canvas'),
 
   sprite_sheet_saw.image.src = "images/saw_2.0.png";// Start loading the image.
 
-  let trap = new Trap(640,565,25,10)
+  let trap = new Trap(680,555,67,20)
+  let trap2 = new Trap(850,555,50,20)
+  let trap3 = new Trap(925,555,50,20)
+  let trap4 = new Trap(1000,555,50,20)
+  let trap5 = new Trap(1075,555,50,20)
 
   let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 200, 400, 300, 145, 100)
- 
   let saw2 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 300, 500, 400, 145, 50)
-
   let saw3 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 200, 200, 300, 300, 145, 100)
   let saw4 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 250, 375, 250, 525, 145, 50)
   let saw5 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 1000, 110, 1215, 110, 145, 40)
@@ -316,9 +318,25 @@ function update() {
         
       }
       if(isFinished>=5){
+
+
+        context.drawImage(imgTrapUp,trap2.x, trap2.y, trap2.width, trap2.height)
+        check_trap(player,trap2)
+        
+        context.drawImage(imgTrapUp,trap3.x, trap3.y, trap3.width, trap3.height)
+        check_trap(player,trap3)
+
+        context.drawImage(imgTrapUp,trap4.x, trap4.y, trap4.width, trap4.height)
+        check_trap(player,trap4)
+
+        context.drawImage(imgTrapUp,trap5.x, trap5.y, trap5.width, trap5.height)
+        check_trap(player,trap5)
+
         saw9.animation_saw.update();
       context.drawImage(sprite_sheet_saw.image, saw9.animation_saw.frame * saw9.radius, 0, saw9.width, saw9.height, Math.floor(saw9.x), Math.floor(saw9.y), saw9.size, saw9.size)
       check_sawed(player, saw9)
+
+      
       }
     //ArrowUp Image
     context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)

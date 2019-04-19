@@ -281,6 +281,7 @@ let boxesToAdd = [
         height: 50
     },
     //platform_10_1*1
+    
     {
         x: 825,
         y: 535,
@@ -288,13 +289,7 @@ let boxesToAdd = [
         height: 25
     },
     {
-        x: 875,
-        y: 535,
-        width: 25,
-        height: 25
-    },
-    {
-        x: 925,
+        x: 900,
         y: 535,
         width: 25,
         height: 25
@@ -306,13 +301,7 @@ let boxesToAdd = [
         height: 25
     },
     {
-        x: 1025,
-        y: 535,
-        width: 25,
-        height: 25
-    },
-    {
-        x: 1075,
+        x: 1050,
         y: 535,
         width: 25,
         height: 25
