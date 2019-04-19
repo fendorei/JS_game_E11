@@ -93,9 +93,13 @@ function check_impaled(player, Spikes) {
 }
 
 function check_trap(player, Trap) {
-    if (((player.x >= Trap.x) && (player.x <= (Trap.x + Trap.width))) && (((player.y + player.height) >= Trap.y) && ((player.y + player.height) <= (Trap.y + Trap.height))))
-	player.y = player.y + player.height
+    if (((player.x >= Trap.x && player.x <= Trap.x + Trap.width) || (player.x + player.width >= Trap.x && (player.x + player.width) <= (Trap.x + Trap.width)))&&(((player.y >= Trap.y && player.y <= Trap.y+Trap.height) || (player.y + player.height >= Trap.y)&&(player.y + player.height <= Trap.y + Trap.height)))) {
+        player.x = 50;
+        player.y = 200;
+	death = death + 1
+	div.innerHTML = "Deaths: " + death
     }
+}
 
 function check_fried(player, Laser) {
     if ((player.x >= Laser.start_x && player.x <= Laser.end_x) && (player.y >= Laser.start_y && player.y <= Laser.end_y)) {

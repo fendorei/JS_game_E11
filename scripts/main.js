@@ -169,6 +169,8 @@ let canvas = document.querySelector('canvas'),
 
   sprite_sheet_saw.image.src = "images/saw_2.0.png";// Start loading the image.
 
+  let trap = new Trap(640,565,25,10)
+
   let saw = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 200, 400, 300, 145, 100)
  
   let saw2 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 300, 300, 500, 400, 145, 50)
@@ -179,8 +181,26 @@ let canvas = document.querySelector('canvas'),
   let saw6 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 800, 175, 800, 265, 145, 37.5)
   let saw7 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 925, 175, 925, 265, 145, 37.5)
   let saw8 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 1050, 175, 1050, 265, 145, 37.5)
+  let saw9 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 700, 25, 850, 25, 145, 25)
  
 let arrow = new Arrow(200, 160, 30, "vertical")
+let arrow2 = new Arrow(25,555,1255, "horizontal")
+let arrow3 = new Arrow(900,50,1255, "horizontal")
+
+
+let imgTrapUp = new Image();
+imgTrapUp.src = 'images/spikesUp.png'
+
+let imgTrapLeft = new Image();
+imgTrapLeft.src = 'images/spikesLeft.png'
+
+let imgTrapDown = new Image();
+imgTrapDown.src = 'images/spikesDown.png'
+
+let imgTrapRight = new Image();
+imgTrapRight.src = 'images/spikesRight.png'
+
+
 let imgArrowUp = new Image();
 imgArrowUp.src = 'images/arrow1s.png'
 
@@ -236,7 +256,10 @@ function update() {
     context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
 
     context.drawImage(imgDoorClosed,doorClosed.x, doorClosed.y, doorClosed.width, doorClosed.height)
-    //Saw
+    // Trap
+    context.drawImage(imgTrapUp,trap.x, trap.y, trap.width, trap.height)
+
+
     if(isFinished==1){
         saw.animation_saw.update();
       context.drawImage(sprite_sheet_saw.image, saw.animation_saw.frame * saw.radius, 0, saw.width, saw.height, Math.floor(saw.x), Math.floor(saw.y), saw.size, saw.size)
@@ -267,7 +290,14 @@ function update() {
         }
   
       if(isFinished>=4){
+
+        context.drawImage(imgArrowRight, arrow2.x, arrow2.y, arrow2.width, arrow2.height)
+      check_shot(player, arrow2)
+
+      context.drawImage(imgArrowRight, arrow3.x, arrow3.y, arrow3.width, arrow3.height)
+      check_shot(player, arrow3)
          
+      //Saw
       saw5.animation_saw.update();
       context.drawImage(sprite_sheet_saw.image, saw5.animation_saw.frame * saw5.radius, 0, saw5.width, saw5.height, Math.floor(saw5.x), Math.floor(saw5.y), saw5.size, saw5.size)
       check_sawed(player, saw5)
@@ -284,6 +314,11 @@ function update() {
       context.drawImage(sprite_sheet_saw.image, saw8.animation_saw.frame * saw8.radius, 0, saw8.width, saw8.height, Math.floor(saw8.x), Math.floor(saw8.y), saw8.size, saw8.size)
       check_sawed(player, saw8)
         
+      }
+      if(isFinished>=5){
+        saw9.animation_saw.update();
+      context.drawImage(sprite_sheet_saw.image, saw9.animation_saw.frame * saw9.radius, 0, saw9.width, saw9.height, Math.floor(saw9.x), Math.floor(saw9.y), saw9.size, saw9.size)
+      check_sawed(player, saw9)
       }
     //ArrowUp Image
     context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
@@ -323,6 +358,8 @@ function update() {
 
     
     check_shot(player, arrow)
+
+    check_trap(player,trap)
 }
 
 function colCheck(shapeA, shapeB) {

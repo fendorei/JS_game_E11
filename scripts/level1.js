@@ -92,6 +92,13 @@ let boxesToAdd = [
         height: 25
     },
     {
+        x: 550,
+        y: 525,
+        width: 25,
+        height: 25
+        
+    },
+    {
         x: 300,
         y: 275,
         width: 25,
@@ -179,6 +186,13 @@ let boxesToAdd = [
             y: 25,
             width: 25,
             height: 37.5
+        },
+        {
+            x: 800,
+            y: 300,
+            width: 50,
+            height: 100
+
         },
         //platform_wall_5_2(V)
         {
