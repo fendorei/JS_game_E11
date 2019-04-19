@@ -187,12 +187,12 @@ let boxesToAdd = [
             width: 25,
             height: 37.5
         },
+        //platform_wall_5_2(H)
         {
             x: 800,
             y: 300,
-            width: 50,
+            width: 455,
             height: 100
-
         },
         //platform_wall_5_2(V)
         {
@@ -251,13 +251,7 @@ let boxesToAdd = [
         width: 25,
         height: 50
     },
-    //platform_wall_5_2(H)
-    {
-        x: 800,
-        y: 300,
-        width: 455,
-        height: 100
-    },
+    
     //platform_wall_5_2(V)
     {
         x: 800,
