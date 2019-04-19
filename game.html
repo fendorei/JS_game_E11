@@ -1,26 +1,26 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1">
-    <meta name="description" content="Play the Game of the year">
+    <meta charset="utf-8"/>
     <title>Just Leave</title>
-    <link rel="icon" href="images/head_logo.png" />
+    <meta name"description" content="Play the Game of the year"/>
     <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+    <link rel="icon" href="images/head_logo.png" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/site.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/aos.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/site.css">
   </head>
   <body>
     <!-- Header -->
     <header class="navbar navbar-expand-lg fixed-top navbar-dark" id="header">
       <div class="container">
         <!-- Header Title -->
-        <a class="navbar-brand" href="home.html" title="Home">
+        <a class="navbar-brand" href="index.html" title="Home">
           <img src="images/head_logo.png" alt="Game logo"/> <!--error-->
         </a>
-        <h2 id="header_title" class="d-flex align-items-center"><a href="Home.html" title="Home">Just Leave</a></h2>
+        <h2 id="header_title" class="d-flex align-items-center"><a href="index.html" title="Home">Just Leave</a></h2>
         <!-- Hamburger button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcontent">
           <i class="fas fa-bars"></i>
@@ -29,53 +29,38 @@
         <nav class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarcontent">
           <ul class="navbar-nav text-center">
             <li class="nav-item ">
-              <a href="index.html" class="btn-play" title="Play Now">PLAY NOW</a
+              <a href="game.html" class="btn-play" title="Restart">Restart</a
             </li>
           </ul>
         </nav><!-- Nav-collapse -->
       </div><!-- Container -->
     </header>
-    <!-- Main visible section -->
-    <main class="container-fluid">
-      <!-- Landing Section -->
-      <section id="landing" class="container">
-        <!-- Landing Jumbotron -->
-        <div class="jumbotron row">
-          <a href="#" data-toggle="modal" data-target="#modalvideo" class="col-lg-6" id="video-trigger" title="Vidéo de présentation">
-            <img id="landing-image" src="#" alt="game picture"> <!--error-->
-          </a>
-          <div class="text-center text-lg-left col-lg-6">
-            <h1 class="display-4">Try not to leave !</h1>
-            <p class="lead">The concept is simple. Reach the end of the 10 levels that will put your nerves to the test. If you don't feel capable or can't handle it anymore: Just Leave </p>
-            <a href="index.html" class="btn btn-lg btn-primary" title="Play Now">PLAY NOW</a>
-          </div>
-        </div><!-- Landing Jumbotron -->
-      </section>
+    <main id="mainGame">
+      <button class="unmuteButton"></button>
+      <button class="mutebutton"></button>
+      <audio src="audio/megalovania8bit.mp3" muted autoplay></audio>
+      <canvas id="canvas"></canvas>
+      <div class="score">
+        <h1 class="level values">Level 0</h1>
+        <h2 class="deaths values">Deaths: 0</h2>
+        <h3 data-chronometer class="chrono values">00:00:00</h3>
+      </div>
     </main>
-    <!-- Banner -->
-    <section class="container-fluid" id="banner">
-      <div class="container text-center" data-aos="flip-up">
-        <div id="banner-bloc">
-          <h3>Remind yourself that overconfidance is a fast and unforgiving killer</h3>
+      <div class="scrollArrow">
+        <img src="images/scrollArrow.png" alt="">
+      </div>
+      <div class="containerControl">
+        <div class="instructions">
+          <h4>Controls</h4>
+          <img src="images/control_keys.png" alt="">
         </div>
       </div>
-    </section>
-    <section class="container-fluid" id="story">
-  		<div class="container text-center pb-5">
-  			<img class="character" src="images/character.png" alt="full character">
-        <h3 class="mt-5 mb-3">Patience will be your best friend</h3>
-        <p class="mb-5 col-lg-8 offset-lg-2">
-        Help Billy to get through the different levels of the game! But be careful not to end up on skewers, or impaled, or cut in half, I guess you understood. A lot of patience will be required to triumph and help him find his way
-        </p>
-        <a href="index.html" class="btn btn-lg btn-secondary" title="Play Now">PLAY NOW</a>
-  		</div>
-  	</section>
     <footer class="container-fluid">
       <div class="container">
         <div class="row">
           <ol id="disclaimer">
-            <li>We would like to remind you that the game is under development and that everything looks like an existing person is completely fortuitous.</li>
-            <li>We are not responsible for any incidents or damages to equipment related to the use of our game.</li>
+            <li>We would like to remind you that the game is under development and that everything looking like an existing person is completely fortuitous.</li>
+            <li>We are not responsible for any incidents or damage to equipment related to the use of our game.</li>
           </ol>
         </div>
         <div class="row" id="footer-features">
@@ -91,7 +76,7 @@
           <figure class="col-12 col-sm-6 col-lg-3" >
             <img src="images/controller.png" alt="controller icon">
             <ul>
-              <li><a href="index.html" title="Just Leave">Just Leave</a></li>
+              <li><a href="game.html" title="Just Leave">Just Leave</a></li>
               <li><a href="https://flappybird.io/" title="Flappy Bird">Flappy Bird</a></li>
             </ul>
           </figure>
@@ -108,10 +93,12 @@
         </div>
       </div>
     </footer>
+    <script src="scripts/traps.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/level1.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/aos.js"></script>
-    <script src="scripts/script.js"></script>
   </body>
 </html>
