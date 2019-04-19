@@ -9,7 +9,8 @@ canvas {
     text-transform:uppercase;
     font: 2vw/1 "Bangers", sans-serif;
     font-weight: bold;
-      color: #e9ecef
+    color: #e9ecef;
+    margin-left: 10px;
 
 }
 
@@ -17,12 +18,14 @@ canvas {
     text-transform:uppercase;
     font: 2vw/1 "Bangers", sans-serif;
     font-weight: bold;
-    color: #e9ecef
+    color: #e9ecef;
+    margin-left: 10px;
 }
 
 .chrono {
     font: 2vw/1 "Bangers", sans-serif;
-    color: #e9ecef
+    color: #e9ecef;
+    margin-left: 10px;
 }
 
 #mainGame{
@@ -33,4 +36,24 @@ canvas {
 
 .values{
   margin-top: 50px;
+}
+
+.unmuteButton{
+  background:url(../images/unmute.png) no-repeat;
+  cursor:pointer;
+  border:none;
+  width: 50px;
+  height: 50px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.muteButton{
+  background:url(../images/mute.png) no-repeat;
+  cursor:pointer;
+  border:none;
+  width: 50px;
+  height: 50px;
+  margin-left: 30px;
+  margin-top: 5px;
 }

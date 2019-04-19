@@ -21,6 +21,18 @@ class Door {
         this.height = height
     }
 }
+
+//Music
+let unmuteButton = document.querySelector('.unmuteButton')
+let muteButton = document.querySelector('.muteButton')
+let audio = document.querySelector('audio')
+unmuteButton.addEventListener('click', function() {
+  audio.muted = false
+});
+muteButton.addEventListener('click', function() {
+  audio.muted = true
+});
+
 //Animation hero
 const SPRITE_SIZE = 50;
 
