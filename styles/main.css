@@ -26,7 +26,7 @@ canvas {
 }
 
 #mainGame{
-  height: 650px;
+  height: 635px;
   width: auto;
   background: #333;
 }
@@ -41,6 +41,42 @@ padding-top: 20px;
 }
 
 .instructions{
-  height: 500px;
+  width: 850px;
+  height: 400px;
+  margin: 0 auto;
   background: #f8f7fa;
+}
+
+.instructions img{
+  width: 800px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 50px;
+}
+
+.containerControl{
+  background: #f8f7fa
+}
+
+.instructions h4{
+  text-align: center;
+  padding-top: 50px;
+  font-family: 'Bangers';
+  font-size: 45px;
+}
+
+.scrollArrow{
+  height: 50px;
+  background: #333;
+}
+
+.scrollArrow img{
+  width: 40px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
