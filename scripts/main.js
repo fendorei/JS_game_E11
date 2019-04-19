@@ -263,11 +263,17 @@ function update() {
 
 
     if(isFinished==1){
+
         saw.animation_saw.update();
       context.drawImage(sprite_sheet_saw.image, saw.animation_saw.frame * saw.radius, 0, saw.width, saw.height, Math.floor(saw.x), Math.floor(saw.y), saw.size, saw.size)
       check_sawed(player, saw)
   
       }
+      if(isFinished>=1){
+        context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
+        check_shot(player, arrow)
+      }
+
   
       if(isFinished>=2){
          
@@ -338,8 +344,8 @@ function update() {
 
       
       }
-    //ArrowUp Image
-    context.drawImage(imgArrowUp, arrow.x, arrow.y, arrow.width, arrow.height)
+    
+    
 
     player.grounded = false;
     for (let i = 0; i < boxes.length; i++) {
@@ -375,7 +381,7 @@ function update() {
     context.drawImage(sprite_sheet.image, player.animation.frame * SPRITE_SIZE, 0, SPRITE_SIZE, SPRITE_SIZE, Math.floor(player.x), Math.floor(player.y), SPRITE_SIZE, SPRITE_SIZE);
 
     
-    check_shot(player, arrow)
+    
 
     check_trap(player,trap)
 }
