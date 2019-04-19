@@ -367,7 +367,9 @@ let boxesToAdd = [
     }]
 ];
 
-const doorLevel1 = new Door(1200, 450, 40, 60)
+
+const doorLevel1 = new Door(1180, 440, 75, 75)
+const doorClosed = new Door(25, 175, 75, 75)
 
 canvas.width = 1280;
 canvas.height = 600;

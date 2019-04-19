@@ -83,6 +83,7 @@ const SPRITE_SIZE = 50;
 
   sprite_sheet.image.src = "images/hero_sprite.png";// Start loading the image.
 
+//Img Door
 
 let imgDoor = new Image();
 imgDoor.addEventListener('load', function() {
@@ -90,7 +91,16 @@ imgDoor.addEventListener('load', function() {
 }, false);
 imgDoor.src = 'images/openedDoor_lv1.png'
 
-const player = new Player(new animation(), 50, 5, 30, 47, 5, 0, 0, false, false)
+
+let imgDoorClosed = new Image();
+imgDoorClosed.addEventListener('load', function() {
+//  executes drawImage instructions here
+}, false);
+imgDoorClosed.src = 'images/doorClosed.jpg'
+
+
+
+const player = new Player(new animation(), 50, 175, 30, 47, 5, 0, 0, false, false)
 
 let canvas = document.querySelector('canvas'),
     context = canvas.getContext('2d'),
@@ -212,6 +222,8 @@ function update() {
 
     //Door
     context.drawImage(imgDoor,doorLevel1.x, doorLevel1.y, doorLevel1.width, doorLevel1.height)
+
+    context.drawImage(imgDoorClosed,doorClosed.x, doorClosed.y, doorClosed.width, doorClosed.height)
     //Saw
     if(isFinished==1){
         saw.animation_saw.update();
