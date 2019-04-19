@@ -39,3 +39,8 @@ canvas {
 .values{
 padding-top: 20px;
 }
+
+.instructions{
+  height: 500px;
+  background: #f8f7fa;
+}
