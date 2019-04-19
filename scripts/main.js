@@ -21,6 +21,18 @@ class Door {
         this.height = height
     }
 }
+
+//Music
+let unmuteButton = document.querySelector('.unmuteButton')
+let muteButton = document.querySelector('.muteButton')
+let audio = document.querySelector('audio')
+unmuteButton.addEventListener('click', function() {
+  audio.muted = false
+});
+muteButton.addEventListener('click', function() {
+  audio.muted = true
+});
+
 //Animation hero
 const SPRITE_SIZE = 50;
 
@@ -168,7 +180,7 @@ let canvas = document.querySelector('canvas'),
   let saw7 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 925, 175, 925, 265, 145, 37.5)
   let saw8 = new MovingSaw(new animation_saw(sprite_sheet_saw.frame_sets,1), 145, 145, 1050, 175, 1050, 265, 145, 37.5)
  
-let arrow = new Arrow(200, 200, 100, "vertical")
+let arrow = new Arrow(200, 160, 30, "vertical")
 let imgArrowUp = new Image();
 imgArrowUp.src = 'images/arrow1s.png'
 
